@@ -24,14 +24,14 @@ Famiglia con 2 figli. Mutuo, bollette, sport dei figli. Vuole costruire un buffe
 
 ---
 
-## 03 · Soluzione — il modello a 4 bucket
+<!-- ## 03 · Soluzione — il modello a 4 bucket
 
 | Bucket | Descrizione | Colore |
 |--------|-------------|--------|
 | 💸 Spese fisse | Affitto, mutuo, abbonamenti | Corallo `#FF6B5B` |
 | 🎨 Spese variabili | Cene, concerti, shopping | Lilla `#B08FFF` |
 | 🛡️ Buffer emergenze | Auto, dentista, imprevisti | Azzurro `#6BBFFF` |
-| 🌍 Obiettivi | Viaggi, acquisti, sogni | Verde `#3DBF7F` |
+| 🌍 Obiettivi | Viaggi, acquisti, sogni | Verde `#3DBF7F` | -->
 
 ### Il numero chiave: "Free to Dream"
 `Stipendio − spese fisse − spese variabili − buffer = Free to Dream`
@@ -43,10 +43,10 @@ Mostrato in modo prominente nella Home, aggiornato in tempo reale. È il cuore d
 ## 04 · Scope MVP (v1)
 
 ### Onboarding (5 step)
-Splash → Stipendio → Spese fisse → Lifestyle quiz → Primo obiettivo
+Splash → Stipendio → Spese fisse → Lifestyle quiz → Primo obiettivo → [epic/onboarding/epic.md](epic/onboarding/epic.md)
 
 ### Home
-Saluto personalizzato, hero number "Free to Dream", riepilogo 4 bucket, lista obiettivi con progress bar, spese ricorrenti in arrivo.
+Saluto personalizzato, hero number "Free to Dream", riepilogo 4 bucket, lista obiettivi con progress bar, spese ricorrenti in arrivo. → [epic/dashboard/epic.md](epic/dashboard/epic.md)
 
 ### Goals
 Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo target, data target, emoji), progress bar con proiezione temporale, celebrazione milestone.
@@ -70,9 +70,10 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Digest settimanale via email/push
 - App mobile nativa (iOS/Android)
 - Offline mode con sync
+- Tracker spesa supermercato: registrazione spese della spesa con confronto settimana/mese su mese
 
 ### Won't (v1)
-- Integrazione bancaria (Enable Banking / PSD2)
+- Integrazione bancaria (Enable Banking / PSD2) — rinviata al piano Pro in v3
 - AI advisor / suggerimenti automatici
 - Multi-valuta / conti multipli
 
@@ -96,12 +97,12 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - **Piattaforma v1:** Web app responsive (PWA-ready). App mobile nativa in v2.
 - **Backend:** Necessario da subito per auth e sync dati.
 - **Dati locali:** Supporto offline rinviato a v2. In v1, l'app richiede connessione.
-- **Inserimento dati:** Manuale in v1. L'integrazione Enable Banking (PSD2) richiede partnership, conformità ABI e tempi non compatibili con un MVP.
-- **Monetizzazione:** Non nel scope v1. Freemium (Goals illimitati = paid) è l'ipotesi di lavoro per v2.
+- **Inserimento dati:** Manuale in v1 e nel piano gratuito. L'integrazione bancaria (PSD2) è riservata al piano a pagamento e richiede partnership, conformità ABI e tempi non compatibili con un MVP.
+- **Monetizzazione:** Non nel scope v1. Il modello Freemium si basa sulla distinzione inserimento dati: **piano gratuito = manuale** (stipendio e spese inseriti a mano); **piano Pro = automatico** (sync con il conto bancario via PSD2 per importare stipendio e transazioni in automatico).
 
 ---
 
-## 08 · Stack tecnico consigliato
+<!-- ## 08 · Stack tecnico consigliato
 
 | Layer | Tecnologia | Motivazione |
 |-------|-----------|-------------|
@@ -112,7 +113,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 | Hosting | Vercel | Deploy automatico da Git, edge network, preview URL per ogni PR. |
 | Notifiche (v1.1) | Resend + React Email | Email transazionali con alta deliverability. Push notification via web push API in v2. |
 | Analytics | Posthog | Event tracking, funnel onboarding, session recording. Fondamentale per misurare le metriche del PRD. |
-| Banking (v3) | Enable Banking API | Aggregazione PSD2 per il mercato italiano. Richiede registrazione come AISP presso Banca d'Italia. |
+| Banking (v3) | Enable Banking API | Aggregazione PSD2 per il mercato italiano. Richiede registrazione come AISP presso Banca d'Italia. | -->
 
 ---
 
@@ -138,11 +139,13 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Push notification native
 - Piano Pro: Goals illimitati + feature avanzate
 - Referral program
+- **Tracker spesa supermercato:** registrazione veloce delle spese della spesa all'interno delle spese variabili, con storico e confronto settimana su settimana / mese su mese
 
-### v3 — Integrazione bancaria · Mesi 7–12
-- Connessione al conto bancario (PSD2)
-- Import automatico stipendio e spese
-- Categorizzazione automatica transazioni
+### v3 — Piano Pro & Integrazione bancaria · Mesi 7–12
+- **Piano Pro:** sblocca sync bancario automatico come upgrade dal piano gratuito (inserimento manuale)
+- Connessione al conto bancario via PSD2 (Enable Banking)
+- Import automatico stipendio e transazioni dal conto
+- Categorizzazione automatica delle transazioni
 - Suggerimenti basati su pattern di spesa
 
 ---
