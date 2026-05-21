@@ -1,4 +1,4 @@
-# moneyCoach — Product Requirements Document
+# DreamJar — Product Requirements Document
 **Versione:** 1.0 · Maggio 2025
 **Stato:** Draft
 
@@ -64,7 +64,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 ### Should (v1.1)
 - Schermata Budget: breakdown modificabile 4 bucket
 - Notifiche: reminder spese + milestone goal
-- Registrazione spese manuale
+- Registrazione spese manuale → [epic/dashboard/epic-expense-tracking.md](epic/dashboard/epic-expense-tracking.md)
 
 ### Could (v2)
 - Digest settimanale via email/push

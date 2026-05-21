@@ -11,7 +11,7 @@
 
 **Prompt Lovable**
 
-moneyCoach è un'app di gestione budget personale. Costruisci la Home principale.
+DreamJar è un'app di gestione budget personale. Costruisci la Home principale.
 
 In cima: saluto con nome utente, testo contestuale per ora del giorno (buongiorno / buon pomeriggio / buonasera).
 
@@ -32,7 +32,7 @@ Se onboarding non completato: hero mostra "—" e banner "Completa il setup per 
 
 **Prompt Lovable**
 
-Nella Home di moneyCoach, sotto l'hero, aggiungi sezione "Il tuo mese" con 4 card (griglia 2×2).
+Nella Home di DreamJar, sotto l'hero, aggiungi sezione "Il tuo mese" con 4 card (griglia 2×2).
 
 Ogni card: emoji + nome bucket, importo allocato (€), % sul reddito. Colori dal brand system allegato (Corallo, Lilla, Azzurro, Verde).
 
@@ -46,7 +46,7 @@ Tap su card → placeholder navigazione (nessun errore, schermata Budget in futu
 
 **Prompt Lovable**
 
-Nella Home di moneyCoach, dopo i bucket, aggiungi sezione "I tuoi obiettivi".
+Nella Home di DreamJar, dopo i bucket, aggiungi sezione "I tuoi obiettivi".
 
 Ogni riga: emoji + nome, progress bar (risparmiato / target), "Mancano €X".
 
@@ -60,7 +60,7 @@ Tap → dettaglio obiettivo. Max 3 in Home, link "Vedi tutti" se ce ne sono di p
 
 **Prompt Lovable**
 
-Nella Home di moneyCoach, dopo gli obiettivi, aggiungi sezione "In arrivo" con le spese ricorrenti nei prossimi 7 giorni.
+Nella Home di DreamJar, dopo gli obiettivi, aggiungi sezione "In arrivo" con le spese ricorrenti nei prossimi 7 giorni.
 
 Ogni riga: nome spesa, importo, data ("Domani" / "18 mag"). Ordinate per data crescente. Sezione nascosta completamente se nessuna spesa nel periodo.
 
@@ -72,7 +72,7 @@ Ogni riga: nome spesa, importo, data ("Domani" / "18 mag"). Ordinate per data cr
 
 **Prompt Lovable**
 
-Nella Home di moneyCoach aggiungi:
+Nella Home di DreamJar aggiungi:
 - Pull-to-refresh: aggiorna hero, bucket, obiettivi, spese in arrivo
 - Skeleton loaders al posto di ogni sezione durante il caricamento (layout stabile, niente shift)
 - Errore fetch: banner "Impossibile aggiornare i dati. Riprova." con bottone Riprova

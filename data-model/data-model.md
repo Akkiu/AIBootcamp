@@ -1,4 +1,4 @@
-# moneyCoach — Data Model
+# DreamJar — Data Model
 
 **Versione:** 1.0 · Maggio 2026
 **Scope:** MVP v1 — Dashboard, Onboarding, Goals

@@ -7,11 +7,11 @@
 
 ## O-1 · Splash
 
-> As a new user, I want to see what moneyCoach does before I start so that I understand the value before giving any data.
+> As a new user, I want to see what DreamJar does before I start so that I understand the value before giving any data.
 
 **Prompt Lovable**
 
-moneyCoach è un'app di gestione budget personale. Costruisci la schermata Splash dell'onboarding.
+DreamJar è un'app di gestione budget personale. Costruisci la schermata Splash dell'onboarding.
 
 Schermata a piena altezza (sfondo scuro, brand color) con:
 - Logo e nome app
@@ -30,7 +30,7 @@ Tap su "Inizia" → step 2 (Stipendio).
 
 **Prompt Lovable**
 
-Nella schermata Onboarding step 2 di moneyCoach, chiedi all'utente il suo stipendio mensile netto.
+Nella schermata Onboarding step 2 di DreamJar, chiedi all'utente il suo stipendio mensile netto.
 
 Contenuto: titolo "Quanto guadagni al mese?", sottotitolo "Il netto che ti arriva in banca", input numerico grande con prefisso €.
 
@@ -46,7 +46,7 @@ Salva in `profiles.monthly_income`. Tap "Avanti" → step 3.
 
 **Prompt Lovable**
 
-Nella schermata Onboarding step 3 di moneyCoach, l'utente aggiunge le sue spese fisse mensili.
+Nella schermata Onboarding step 3 di DreamJar, l'utente aggiunge le sue spese fisse mensili.
 
 Titolo: "Quali spese hai ogni mese?" — lista di spese già aggiunte (vuota all'inizio), bottone "+ Aggiungi spesa" che apre un form inline con: nome spesa (es. "Affitto"), importo €, giorno del mese di addebito (1–31).
 
@@ -62,7 +62,7 @@ Indicatore step "3 di 5". Bottone "Avanti" attivo anche con lista vuota (le spes
 
 **Prompt Lovable**
 
-Nella schermata Onboarding step 4 di moneyCoach, stima le spese variabili e il buffer tramite un quiz a domande chiuse.
+Nella schermata Onboarding step 4 di DreamJar, stima le spese variabili e il buffer tramite un quiz a domande chiuse.
 
 Titolo: "Com'è il tuo stile di vita?" Mostra 3–4 domande in sequenza (una alla volta o a scorrimento), ognuna con 3 opzioni selezionabili. Esempi:
 
@@ -82,7 +82,7 @@ Indicatore step "4 di 5". Tap "Avanti" → step 5.
 
 **Prompt Lovable**
 
-Nella schermata Onboarding step 5 di moneyCoach, l'utente crea il suo primo obiettivo di risparmio.
+Nella schermata Onboarding step 5 di DreamJar, l'utente crea il suo primo obiettivo di risparmio.
 
 Titolo: "Per cosa stai risparmiando?" Campi: nome obiettivo (es. "Viaggio in Asia"), emoji picker, importo target €, data target (mese e anno, opzionale).
 

@@ -1,4 +1,4 @@
-# moneyCoach — Brand System
+# myDreamSaver — Brand System
 > Single source of truth for identity, tone, colors, and typography.
 > Use this as the creative foundation for all UI decisions.
 
@@ -14,7 +14,7 @@ joyful, and motivating system to manage fixed expenses, variable expenses, and s
 **"Save smart. Live full."** (EN) · **"Risparmia con testa. Vivi a pieno."** (IT)
 
 ### Personality
-moneyCoach is a **supportive friend who happens to be great with money** — not a bank,
+myDreamSaver is a **supportive friend who happens to be great with money** — not a bank,
 not a financial advisor, not a lecturer. The brand is warm, playful, and celebratory.
 
 | Trait | What it means in practice |
@@ -43,8 +43,8 @@ not a financial advisor, not a lecturer. The brand is warm, playful, and celebra
 ```css
 :root {
   /* Primary */
-  --mc-leaf:           #3DBF7F;   /* Growth, savings, success — main brand color */
-  --mc-leaf-dark:      #27A06A;   /* Hover / pressed */
+  --mc-leaf:           #b631c8;   /* Growth, savings, success — main brand color */
+  --mc-leaf-dark:      #a02790;   /* Hover / pressed */
   --mc-leaf-light:     #E8FAF2;   /* Subtle tint for backgrounds */
 
   /* Accent */
@@ -58,10 +58,10 @@ not a financial advisor, not a lecturer. The brand is warm, playful, and celebra
   --mc-dark-surface:   #252A3E;
 
   /* Category colors — each expense type has its own color identity */
-  --mc-fixed:          #3DBF7F;   /* Fixed expenses (rent, utilities) */
-  --mc-variable:       #FF6B5B;   /* Variable expenses (dinners, concerts) */
+  --mc-fixed:          #bd9936;   /* Fixed expenses (rent, utilities) */
+  --mc-variable:       #ff975b;   /* Variable expenses (dinners, concerts) */
   --mc-buffer:         #B08FFF;   /* Risk buffer (car repair, dentist) */
-  --mc-goal:           #6BBFFF;   /* Saving goals (travel, purchases) */
+  --mc-goal:           #3a50bc;   /* Saving goals (travel, purchases) */
 
   /* Text */
   --mc-ink:            #1A1E2E;   /* Primary — never pure black */
@@ -112,11 +112,11 @@ Import: `https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sa
 
 ### Wordmark
 ```
-moneyCoach
+myDreamSaver
 ```
-- "money" → Syne 800, `--mc-ink` (or white on dark backgrounds)
-- "Coach" → Syne 800, `--mc-leaf`
-- Always lowercase "money", always Title case "Coach". Never alter this.
+- "myDream" → Syne 800, `--mc-ink` (or white on dark backgrounds)
+- "Saver" → Syne 800, `--mc-leaf`
+- Always lowercase "myDream", always Title case "Saver". Never alter this.
 
 ### Icon Mark
 A circle with a checkmark inside, with a small filled coin (circle in `--mc-sun`) overlapping
@@ -232,7 +232,7 @@ in green, with Syne 800.
 
 ---
 
-## 9. What makes moneyCoach different
+## 9. What makes myDreamSaver different
 
 - **It speaks Italian, informally.** It feels like a friend, not a fintech product.
 - **Emoji are first-class citizens**, not decoration.
@@ -242,4 +242,4 @@ in green, with Syne 800.
 
 ---
 
-*moneyCoach Brand System v1.1 — identity-focused, Lovable-ready*
+*myDreamSaver Brand System v1.1 — identity-focused, Lovable-ready*

@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720">
+  <defs>
+    <style>text { font-family: DM Sans, Helvetica, Arial, sans-serif; }</style>
+  </defs>
+  <rect width="1100" height="720" fill="#FAFAF8" rx="12"/>
+
+  <!-- title -->
+  <text x="50" y="56" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#1A1E2E">myDreamSaver — Entity Relationship Diagram</text>
+  <text x="50" y="78" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="13" fill="#7A8099">MVP v1 · Data Model</text>
+
+  <!-- legend -->
+  <rect x="820" y="30" width="14" height="14" rx="3" fill="#E8FAF2"/>
+  <text x="840" y="43" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">PK</text>
+  <rect x="870" y="30" width="14" height="14" rx="3" fill="#FFF5E0"/>
+  <text x="890" y="43" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">FK</text>
+
+<rect x="64" y="124" width="460" height="144" rx="8" fill="#00000018"/>
+<rect x="60" y="120" width="460" height="144" rx="8" fill="white" stroke="#C8D0D8" stroke-width="1.5"/>
+<rect x="60" y="120" width="460" height="36" rx="8" fill="#3DBF7F"/>
+<rect x="60" y="148" width="460" height="8" fill="#3DBF7F"/>
+<text x="290.0" y="144.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">users</text>
+<rect x="61" y="158" width="458" height="26" fill="#E8FAF2"/>
+<text x="74" y="175" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">id</text>
+<text x="240" y="175" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">uuid</text>
+<text x="340" y="175" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">PK</text>
+<rect x="61" y="184" width="458" height="26" fill="#FFFFFF"/>
+<text x="74" y="201" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">email</text>
+<text x="240" y="201" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">text</text>
+<rect x="61" y="210" width="458" height="26" fill="#FAFAF8"/>
+<text x="74" y="227" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">full_name</text>
+<text x="240" y="227" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">text</text>
+<rect x="61" y="236" width="458" height="26" fill="#FFFFFF"/>
+<text x="74" y="253" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">created_at</text>
+<text x="240" y="253" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">timestamptz</text>
+<rect x="60" y="256" width="460" height="8" rx="0" fill="white" stroke="#C8D0D8" stroke-width="0"/>
+<rect x="64" y="404" width="460" height="222" rx="8" fill="#00000018"/>
+<rect x="60" y="400" width="460" height="222" rx="8" fill="white" stroke="#C8D0D8" stroke-width="1.5"/>
+<rect x="60" y="400" width="460" height="36" rx="8" fill="#3DBF7F"/>
+<rect x="60" y="428" width="460" height="8" fill="#3DBF7F"/>
+<text x="290.0" y="424.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">profiles</text>
+<rect x="61" y="438" width="458" height="26" fill="#E8FAF2"/>
+<text x="74" y="455" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">id</text>
+<text x="240" y="455" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">uuid</text>
+<text x="340" y="455" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">PK · FK → users.id</text>
+<rect x="61" y="464" width="458" height="26" fill="#FFFFFF"/>
+<text x="74" y="481" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">monthly_income</text>
+<text x="240" y="481" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<rect x="61" y="490" width="458" height="26" fill="#FAFAF8"/>
+<text x="74" y="507" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">fixed_expenses</text>
+<text x="240" y="507" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<rect x="61" y="516" width="458" height="26" fill="#FFFFFF"/>
+<text x="74" y="533" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">variable_expenses</text>
+<text x="240" y="533" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<rect x="61" y="542" width="458" height="26" fill="#FAFAF8"/>
+<text x="74" y="559" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">buffer</text>
+<text x="240" y="559" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<rect x="61" y="568" width="458" height="26" fill="#FFFFFF"/>
+<text x="74" y="585" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">onboarding_completed</text>
+<text x="240" y="585" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">boolean</text>
+<text x="340" y="585" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">default false</text>
+<rect x="61" y="594" width="458" height="26" fill="#FAFAF8"/>
+<text x="74" y="611" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">updated_at</text>
+<text x="240" y="611" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">timestamptz</text>
+<rect x="60" y="614" width="460" height="8" rx="0" fill="white" stroke="#C8D0D8" stroke-width="0"/>
+<rect x="564" y="64" width="460" height="300" rx="8" fill="#00000018"/>
+<rect x="560" y="60" width="460" height="300" rx="8" fill="white" stroke="#C8D0D8" stroke-width="1.5"/>
+<rect x="560" y="60" width="460" height="36" rx="8" fill="#3DBF7F"/>
+<rect x="560" y="88" width="460" height="8" fill="#3DBF7F"/>
+<text x="790.0" y="84.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">goals</text>
+<rect x="561" y="98" width="458" height="26" fill="#E8FAF2"/>
+<text x="574" y="115" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">id</text>
+<text x="740" y="115" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">uuid</text>
+<text x="840" y="115" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">PK</text>
+<rect x="561" y="124" width="458" height="26" fill="#FFF5E0"/>
+<text x="574" y="141" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">user_id</text>
+<text x="740" y="141" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">uuid</text>
+<text x="840" y="141" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">FK → users.id</text>
+<rect x="561" y="150" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="167" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">name</text>
+<text x="740" y="167" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">text</text>
+<rect x="561" y="176" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="193" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">emoji</text>
+<text x="740" y="193" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">text</text>
+<rect x="561" y="202" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="219" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">target_amount</text>
+<text x="740" y="219" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<rect x="561" y="228" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="245" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">saved_amount</text>
+<text x="740" y="245" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<text x="840" y="245" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">default 0</text>
+<rect x="561" y="254" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="271" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">target_date</text>
+<text x="740" y="271" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">date</text>
+<text x="840" y="271" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">opzionale</text>
+<rect x="561" y="280" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="297" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">status</text>
+<text x="740" y="297" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">enum</text>
+<text x="840" y="297" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">active · completed</text>
+<rect x="561" y="306" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="323" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">created_at</text>
+<text x="740" y="323" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">timestamptz</text>
+<rect x="561" y="332" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="349" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">updated_at</text>
+<text x="740" y="349" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">timestamptz</text>
+<rect x="560" y="352" width="460" height="8" rx="0" fill="white" stroke="#C8D0D8" stroke-width="0"/>
+<rect x="564" y="454" width="460" height="248" rx="8" fill="#00000018"/>
+<rect x="560" y="450" width="460" height="248" rx="8" fill="white" stroke="#C8D0D8" stroke-width="1.5"/>
+<rect x="560" y="450" width="460" height="36" rx="8" fill="#3DBF7F"/>
+<rect x="560" y="478" width="460" height="8" fill="#3DBF7F"/>
+<text x="790.0" y="474.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">recurring_expenses</text>
+<rect x="561" y="488" width="458" height="26" fill="#E8FAF2"/>
+<text x="574" y="505" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">id</text>
+<text x="740" y="505" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">uuid</text>
+<text x="840" y="505" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">PK</text>
+<rect x="561" y="514" width="458" height="26" fill="#FFF5E0"/>
+<text x="574" y="531" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">user_id</text>
+<text x="740" y="531" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">uuid</text>
+<text x="840" y="531" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">FK → users.id</text>
+<rect x="561" y="540" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="557" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">name</text>
+<text x="740" y="557" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">text</text>
+<rect x="561" y="566" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="583" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">amount</text>
+<text x="740" y="583" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">numeric</text>
+<rect x="561" y="592" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="609" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">day_of_month</text>
+<text x="740" y="609" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">int</text>
+<text x="840" y="609" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">1–31</text>
+<rect x="561" y="618" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="635" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">bucket</text>
+<text x="740" y="635" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">enum</text>
+<text x="840" y="635" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">fixed · variable · buffer</text>
+<rect x="561" y="644" width="458" height="26" fill="#FAFAF8"/>
+<text x="574" y="661" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">active</text>
+<text x="740" y="661" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">boolean</text>
+<text x="840" y="661" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">default true</text>
+<rect x="561" y="670" width="458" height="26" fill="#FFFFFF"/>
+<text x="574" y="687" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1A1E2E">created_at</text>
+<text x="740" y="687" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66">timestamptz</text>
+<rect x="560" y="690" width="460" height="8" rx="0" fill="white" stroke="#C8D0D8" stroke-width="0"/>
+
+  <line x1="290.0" y1="264" x2="290.0" y2="400" stroke="#4A4F66" stroke-width="1.8"/>
+  <text x="302.0" y="332.0" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66" font-weight="600">1 : 1</text>
+  <text x="302.0" y="346.0" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">ha</text>
+
+
+  <path d="M 520 192.0 C 540.0 192.0, 540.0 210.0, 560 210.0" fill="none" stroke="#4A4F66" stroke-width="1.8"/>
+  <text x="540.0" y="191.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66" font-weight="600">1 : N</text>
+  <text x="540.0" y="205.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">ha</text>
+
+
+  <path d="M 520 192.0 C 540.0 192.0, 540.0 574.0, 560 574.0" fill="none" stroke="#4A4F66" stroke-width="1.8" stroke-dasharray="6,3"/>
+  <text x="540.0" y="373.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#4A4F66" font-weight="600">1 : N</text>
+  <text x="540.0" y="387.0" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#7A8099" font-style="italic">ha</text>
+
+</svg>
