@@ -5,7 +5,7 @@
 
 ---
 
-## EX-1 · Quick Add Expense
+## EX-1 · Quick Add Expense con tipologia
 
 > As a user, I want to log a new expense from the Home in a few taps so that tracking never feels like a chore.
 
@@ -15,12 +15,13 @@ DreamJar è un'app di gestione budget personale. Aggiungi alla Home la funzional
 
 Pulsante "+" flottante in basso a destra (sopra la bottom navigation). Al tap apre un bottom sheet.
 
-Il bottom sheet contiene:
-- Campo importo con numpad nativo, placeholder "€ 0,00", focus automatico all'apertura
-- Selezione bucket: 4 opzioni a scelta singola con emoji e nome — 💸 Spese fisse, 🎨 Spese variabili, 🛡️ Buffer emergenze, 🌍 Obiettivi. Colori dal brand system allegato.
-- Campo "Nome / descrizione" testuale, opzionale, placeholder "es. Cena con amici"
-- Campo data, default oggi, modificabile
-- Bottone "Salva" — disabilitato finché importo > 0 e bucket selezionato
+Il bottom sheet contiene, in questo ordine:
+1. **Campo importo** — numpad nativo, placeholder "€ 0,00", focus automatico all'apertura
+2. **Selezione bucket** — 4 opzioni a scelta singola con emoji e nome: 💸 Spese fisse, 🎨 Spese variabili, 🛡️ Buffer emergenze, 🌌 Obiettivi. Colori dal brand system allegato.
+3. **Selezione tipologia** — appare dopo che l'utente ha selezionato un bucket. Mostra le tipologie disponibili per quel bucket come chip orizzontali scrollabili (emoji + nome). Tipologie preset di sistema: Cena fuori 🍽️, Aperitivo 🥂, Dentista 🦷, Spesa supermercato 🛒, Carburante ⛽, Farmacia 💊, Trasporti 🚌, Abbigliamento 👗 — ognuna è già associata al bucket corretto e appare solo quando il bucket corrispondente è selezionato. In fondo alla lista dei chip c'è il chip "+ Aggiungi tipologia" che apre un campo di testo inline per digitare il nome della nuova tipologia; al tap "Conferma" la nuova tipologia viene salvata nel database e appare subito come chip selezionato.
+4. **Campo nota** — testo opzionale, placeholder "Aggiungi una nota…"
+5. **Campo data** — default oggi, modificabile
+6. **Bottone "Salva"** — disabilitato finché importo > 0 e bucket selezionato (la tipologia è consigliata ma non bloccante)
 
 Al salvataggio: sheet si chiude, toast non bloccante "Spesa aggiunta 👍", bucket card corrispondente si aggiorna con il nuovo importo speso, hero "Free to Dream" si ricalcola.
 
@@ -38,7 +39,7 @@ DreamJar — aggiorna le 4 bucket card nella sezione "Il tuo mese" in Home.
 
 Ogni card ora mostra tre righe: budget allocato (etichetta "Budget"), importo speso questo mese (etichetta "Speso"), rimanente (etichetta "Rimanente" = budget − speso). Aggiungi una barra progresso che rappresenta % spesa sul budget.
 
-Se speso > budget: barra e importo "Rimanente" diventano corallo, testo "Rimanente" diventa "Sforato di €X".
+Se speso > budget: barra e importo "Rimanente" diventano rosso errore, testo "Rimanente" diventa "Sforato di €X".
 
 Nessuna spesa ancora registrata: "Speso €0", barra vuota.
 
@@ -54,7 +55,7 @@ DreamJar — crea la schermata "Dettaglio Bucket" raggiungibile dal tap su una b
 
 In cima: nome bucket con emoji, budget del mese, barra speso/rimanente (stesso stile di Home).
 
-Lista spese del mese corrente, ordinate per data decrescente. Ogni riga: data, nome/descrizione (o "Spesa" se non specificato), importo. Se nessuna spesa: stato vuoto "Nessuna spesa registrata questo mese".
+Lista spese del mese corrente, ordinate per data decrescente. Ogni riga mostra: data, tipologia con emoji (o "Spesa" se non specificata), nota opzionale in testo secondario, importo. Se nessuna spesa: stato vuoto "Nessuna spesa registrata questo mese".
 
 Eliminazione spesa: swipe a sinistra sulla riga → pulsante "Elimina" rosso → conferma → spesa rimossa, bucket e Free to Dream ricalcolati.
 
@@ -68,6 +69,6 @@ Navigazione: freccia "Indietro" in alto a sinistra → torna alla Home.
 
 | # | Story | Dipendenze |
 |---|-------|------------|
-| 1 | EX-1 Quick Add | D-1, D-2 (bucket cards esistenti) |
+| 1 | EX-1 Quick Add + tipologia | D-1, D-2 (bucket cards esistenti) |
 | 2 | EX-2 Bucket aggiornata | EX-1 |
 | 3 | EX-3 Dettaglio bucket | EX-2 |

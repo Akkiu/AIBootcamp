@@ -63,6 +63,36 @@ amount_left   = target_amount - saved_amount
 
 ---
 
+### `expense_typologies`
+Tipologie di spesa create dall'utente (es. "Cena", "Aperitivo", "Dentista"). Alcune sono pre-caricate al primo accesso come suggerimenti; tutte sono modificabili e riutilizzabili per le spese future.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `name` | text | Es. "Cena", "Aperitivo", "Dentista" |
+| `bucket` | enum | `fixed` · `variable` · `buffer` · `goal` — bucket di default suggerito per questa tipologia |
+| `emoji` | text | Opzionale. Es. "🍽️" |
+| `is_preset` | boolean | True per le tipologie pre-caricate dal sistema. Non eliminabili. |
+| `created_at` | timestamptz | |
+
+**Tipologie preset (caricate alla creazione del profilo):**
+
+| name | bucket | emoji |
+|------|--------|-------|
+| Cena fuori | variable | 🍽️ |
+| Aperitivo | variable | 🥂 |
+| Dentista | buffer | 🦷 |
+| Spesa supermercato | variable | 🛒 |
+| Carburante | variable | ⛽ |
+| Farmacia | buffer | 💊 |
+| Trasporti | fixed | 🚌 |
+| Abbigliamento | variable | 👗 |
+
+L'utente può aggiungere tipologie personalizzate senza limite. Le tipologie vengono mostrate ordinate per: preset prima, poi custom per data di creazione decrescente (le più recenti in cima).
+
+---
+
 ### `recurring_expenses`
 Spese fisse e ricorrenti inserite dall'utente (onboarding + gestione successiva). Usate per la sezione "In arrivo" della Home.
 
@@ -78,6 +108,28 @@ Spese fisse e ricorrenti inserite dall'utente (onboarding + gestione successiva)
 | `created_at` | timestamptz | |
 
 **Logica "In arrivo":** le spese con `day_of_month` nei prossimi 7 giorni dal giorno corrente vengono mostrate in Home, ordinate per data crescente.
+
+---
+
+### `expenses`
+Spese manuali registrate dall'utente dalla Dashboard.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `amount` | numeric | Importo > 0 |
+| `bucket` | enum | `fixed` · `variable` · `buffer` · `goal` |
+| `typology_id` | uuid FK → expense_typologies.id | Tipologia selezionata. Nullable (spese senza tipologia consentite) |
+| `note` | text | Nome / descrizione libera opzionale |
+| `expense_date` | date | Data della spesa. Default oggi. |
+| `created_at` | timestamptz | |
+
+**Campo calcolato per il bucket mensile (lato client):**
+```
+spent_this_month = SUM(amount) WHERE bucket = ? AND expense_date IN current month
+remaining        = profiles.<bucket_budget> - spent_this_month
+```
 
 ---
 
@@ -126,9 +178,33 @@ erDiagram
         timestamptz created_at
     }
 
+    expense_typologies {
+        uuid id PK
+        uuid user_id FK
+        text name
+        enum bucket
+        text emoji
+        boolean is_preset
+        timestamptz created_at
+    }
+
+    expenses {
+        uuid id PK
+        uuid user_id FK
+        numeric amount
+        enum bucket
+        uuid typology_id FK
+        text note
+        date expense_date
+        timestamptz created_at
+    }
+
     users ||--|| profiles : "ha"
     users ||--o{ goals : "ha"
     users ||--o{ recurring_expenses : "ha"
+    users ||--o{ expense_typologies : "ha"
+    users ||--o{ expenses : "ha"
+    expense_typologies ||--o{ expenses : "classifica"
 ```
 
 ---
