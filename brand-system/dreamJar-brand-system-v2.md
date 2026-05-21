@@ -106,26 +106,26 @@ Palette estratta direttamente dall'icona: navy della galassia, lavanda nebulosa,
 ### Font
 
 ```
-Display / Numeri / Logo  →  Syne 800
+Display / Numeri / Logo  →  Manrope 800
 Body / UI / Label        →  DM Sans 400, 500
 ```
 
-Import: `https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap`
+Import: `https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap`
 
 ### Gerarchia
 
 | Ruolo | Font | Weight | Note |
 |-------|------|--------|------|
-| Hero numbers (€ importi) | Syne | 800 | Grande, letter-spacing stretto. Il numero è il protagonista. |
-| Titoli schermata | Syne | 800 | Carattere forte e riconoscibile |
-| Intestazioni sezione | Syne | 700 | |
+| Hero numbers (€ importi) | Manrope | 800 | Grande, letter-spacing stretto. Il numero è il protagonista. |
+| Titoli schermata | Manrope | 800 | Carattere forte e riconoscibile |
+| Intestazioni sezione | Manrope | 700 | |
 | Body text | DM Sans | 400 | Leggibile, caldo |
 | Label / caption | DM Sans | 500 | Leggermente più pesante per leggibilità |
 | Hint / testo di supporto | DM Sans | 300 | Contrasto con i numeri in grassetto |
 
 ### Regole
 
-- I numeri finanziari usano sempre **Syne 800**. Un numero grande in `--dj-navy` (o bianco su scuro) è l'hero di ogni schermata.
+- I numeri finanziari usano sempre **Manrope 800**. Un numero grande in `--dj-navy` (o bianco su scuro) è l'hero di ogni schermata.
 - **Sentence case** ovunque. Niente ALL CAPS eccetto label cortissime.
 - **Le emoji sono benvenute** in titoli, nomi degli obiettivi, notifiche, stati di successo.
 - Mai usare Arial, Inter, Roboto o font di sistema.
@@ -140,8 +140,8 @@ Import: `https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sa
 DreamJar
 ```
 
-- "Dream" → Syne 800, `--dj-navy`
-- "Jar" → Syne 800, `--dj-lavender`
+- "Dream" → Manrope 800, `--dj-navy`
+- "Jar" → Manrope 800, `--dj-lavender`
 - Su sfondo scuro: entrambi in `--dj-on-dark`
 - Mai alterare la capitalizzazione o il colore split.
 
@@ -153,7 +153,7 @@ Il barattolo di vetro con la galassia interna (icon_2.jpeg). Elementi chiave:
 - **Nucleo**: punto luminoso `--dj-gold`
 - **Decorazioni**: stelle e luna in `--dj-on-dark` (bianco puro)
 - **Tappo sughero**: caldo naturale `#C4834A`
-- **Cartellino "SOGNO"**: font Syne, kraft beige `#D4AA7D`
+- **Cartellino "SOGNO"**: font Manrope, kraft beige `#D4AA7D`
 
 ### Varianti
 
@@ -239,7 +239,7 @@ L'app ha due "mondi": il **mondo chiaro** (sfondo ghiaccio, card bianche) per la
 ## 9. Differenziatori DreamJar
 
 - **L'icona è il manifesto**: una galassia in un barattolo dice tutto — i sogni non sono astratti, sono già lì dentro.
-- **Il numero protagonista** non è il saldo totale — è il "Free to Dream", sempre in primo piano in Syne 800.
+- **Il numero protagonista** non è il saldo totale — è il "Free to Dream", sempre in primo piano in Manrope 800.
 - **Sfondo azurro ghiaccio** invece del bianco piatto: unico, riconoscibile, coerente con l'atmosfera cosmica.
 - **Le emoji sono first-class citizens**, non decorazione.
 - **Zero senso di colpa**: il corallo è riservato solo agli errori, mai alle spese variabili. Spendere fa parte della vita.
