@@ -24,17 +24,19 @@ Famiglia con 2 figli. Mutuo, bollette, sport dei figli. Vuole costruire un buffe
 
 ---
 
-<!-- ## 03 · Soluzione — il modello a 4 bucket
+<!-- ## 03 · Soluzione — il modello a 6 bucket
 
 | Bucket | Descrizione | Colore |
 |--------|-------------|--------|
 | 💸 Spese fisse | Affitto, mutuo, abbonamenti | Corallo `#FF6B5B` |
-| 🎨 Spese variabili | Cene, concerti, shopping | Lilla `#B08FFF` |
-| 🛡️ Buffer emergenze | Auto, dentista, imprevisti | Azzurro `#6BBFFF` |
+| 🎉 Svago | Cene, concerti, shopping, uscite | Lilla `#B08FFF` |
+| 🛡️ Imprevisti | Auto, dentista, guasti | Azzurro `#6BBFFF` |
+| ⚡ Utenze | Luce, gas, internet, telefono | Giallo `#F5C542` |
+| 📦 Altro | Tutto ciò che non rientra negli altri bucket | Grigio `#A0A0A0` |
 | 🌍 Obiettivi | Viaggi, acquisti, sogni | Verde `#3DBF7F` | -->
 
 ### Il numero chiave: "Free to Dream"
-`Stipendio − spese fisse − spese variabili − buffer = Free to Dream`
+`Stipendio − spese fisse − svago − imprevisti − utenze − altro = Free to Dream`
 
 Mostrato in modo prominente nella Home, aggiornato in tempo reale. È il cuore del prodotto.
 
@@ -46,7 +48,7 @@ Mostrato in modo prominente nella Home, aggiornato in tempo reale. È il cuore d
 Splash → Stipendio → Spese fisse → Lifestyle quiz → Primo obiettivo → [epic/onboarding/epic.md](epic/onboarding/epic.md)
 
 ### Home
-Saluto personalizzato, hero number "Free to Dream", riepilogo 4 bucket, lista obiettivi con progress bar, spese ricorrenti in arrivo. → [epic/dashboard/epic.md](epic/dashboard/epic.md)
+Saluto personalizzato, hero number "Free to Dream", riepilogo 6 bucket, lista obiettivi con progress bar, spese ricorrenti in arrivo. → [epic/dashboard/epic.md](epic/dashboard/epic.md)
 
 ### Goals
 Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo target, data target, emoji), progress bar con proiezione temporale, celebrazione milestone.
@@ -62,7 +64,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Autenticazione (email + Google)
 
 ### Should (v1.1)
-- Schermata Budget: breakdown modificabile 4 bucket
+- Schermata Budget: breakdown modificabile 6 bucket
 - Notifiche: reminder spese + milestone goal
 - Registrazione spese manuale → [epic/dashboard/epic-expense-tracking.md](epic/dashboard/epic-expense-tracking.md)
 
@@ -127,7 +129,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Autenticazione (email + Google)
 
 ### v1.1 — Consolidamento · Settimane 7–10
-- Schermata Budget: breakdown modificabile 4 bucket
+- Schermata Budget: breakdown modificabile 6 bucket
 - Registrazione spese manuali
 - Notifiche: reminder spese + milestone goal
 - Digest settimanale via email

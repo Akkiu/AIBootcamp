@@ -26,15 +26,17 @@ Un record per utente. Contiene il setup budget inserito nell'onboarding.
 |-------|------|------|
 | `id` | uuid PK FK → users.id | |
 | `monthly_income` | numeric | Stipendio mensile netto |
-| `fixed_expenses` | numeric | Totale spese fisse mensili |
-| `variable_expenses` | numeric | Totale spese variabili mensili |
-| `buffer` | numeric | Buffer emergenze mensile |
+| `fixed_expenses` | numeric | Budget mensile Spese fisse |
+| `leisure` | numeric | Budget mensile Svago |
+| `unexpected` | numeric | Budget mensile Imprevisti |
+| `utilities` | numeric | Budget mensile Utenze |
+| `other` | numeric | Budget mensile Altro |
 | `onboarding_completed` | boolean | Default false. True dopo step 5 |
 | `updated_at` | timestamptz | |
 
 **Campo calcolato (non persistito):**
 ```
-free_to_dream = monthly_income - fixed_expenses - variable_expenses - buffer
+free_to_dream = monthly_income - fixed_expenses - leisure - unexpected - utilities - other
 ```
 
 ---
@@ -71,7 +73,7 @@ Tipologie di spesa create dall'utente (es. "Cena", "Aperitivo", "Dentista"). Alc
 | `id` | uuid PK | |
 | `user_id` | uuid FK → users.id | |
 | `name` | text | Es. "Cena", "Aperitivo", "Dentista" |
-| `bucket` | enum | `fixed` · `variable` · `buffer` · `goal` — bucket di default suggerito per questa tipologia |
+| `bucket` | enum | `fixed` · `leisure` · `unexpected` · `utilities` · `other` · `goal` — bucket di default suggerito per questa tipologia |
 | `emoji` | text | Opzionale. Es. "🍽️" |
 | `is_preset` | boolean | True per le tipologie pre-caricate dal sistema. Non eliminabili. |
 | `created_at` | timestamptz | |
@@ -80,14 +82,14 @@ Tipologie di spesa create dall'utente (es. "Cena", "Aperitivo", "Dentista"). Alc
 
 | name | bucket | emoji |
 |------|--------|-------|
-| Cena fuori | variable | 🍽️ |
-| Aperitivo | variable | 🥂 |
-| Dentista | buffer | 🦷 |
-| Spesa supermercato | variable | 🛒 |
-| Carburante | variable | ⛽ |
-| Farmacia | buffer | 💊 |
+| Cena fuori | leisure | 🍽️ |
+| Aperitivo | leisure | 🥂 |
+| Dentista | unexpected | 🦷 |
+| Spesa supermercato | other | 🛒 |
+| Carburante | other | ⛽ |
+| Farmacia | unexpected | 💊 |
 | Trasporti | fixed | 🚌 |
-| Abbigliamento | variable | 👗 |
+| Abbigliamento | leisure | 👗 |
 
 L'utente può aggiungere tipologie personalizzate senza limite. Le tipologie vengono mostrate ordinate per: preset prima, poi custom per data di creazione decrescente (le più recenti in cima).
 
@@ -103,7 +105,7 @@ Spese fisse e ricorrenti inserite dall'utente (onboarding + gestione successiva)
 | `name` | text | Es. "Affitto", "Spotify" |
 | `amount` | numeric | |
 | `day_of_month` | int | Giorno del mese di addebito (1–31) |
-| `bucket` | enum | `fixed` · `variable` · `buffer` |
+| `bucket` | enum | `fixed` · `leisure` · `unexpected` · `utilities` · `other` |
 | `active` | boolean | Default true |
 | `created_at` | timestamptz | |
 
@@ -119,7 +121,7 @@ Spese manuali registrate dall'utente dalla Dashboard.
 | `id` | uuid PK | |
 | `user_id` | uuid FK → users.id | |
 | `amount` | numeric | Importo > 0 |
-| `bucket` | enum | `fixed` · `variable` · `buffer` · `goal` |
+| `bucket` | enum | `fixed` · `leisure` · `unexpected` · `utilities` · `other` · `goal` |
 | `typology_id` | uuid FK → expense_typologies.id | Tipologia selezionata. Nullable (spese senza tipologia consentite) |
 | `note` | text | Nome / descrizione libera opzionale |
 | `expense_date` | date | Data della spesa. Default oggi. |
@@ -148,8 +150,10 @@ erDiagram
         uuid id PK_FK
         numeric monthly_income
         numeric fixed_expenses
-        numeric variable_expenses
-        numeric buffer
+        numeric leisure
+        numeric unexpected
+        numeric utilities
+        numeric other
         boolean onboarding_completed
         timestamptz updated_at
     }

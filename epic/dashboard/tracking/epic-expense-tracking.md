@@ -36,7 +36,7 @@ Le tipologie sono etichette personalizzabili legate a un bucket di default. Veng
 | # | Requisito | Priorità |
 |---|-----------|----------|
 | EX-01 | Pulsante "+" flottante (FAB) sulla Home per aggiungere una spesa | Must |
-| EX-02 | Bottom sheet: campo importo (numpad), selezione bucket (4 opzioni con emoji e colore), data (default oggi, modificabile) | Must |
+| EX-02 | Bottom sheet: campo importo (numpad), selezione bucket (6 opzioni con emoji e colore: Spese fisse 💸, Svago 🎉, Imprevisti 🛡️, Utenze ⚡, Altro 📦, Obiettivi 🌍), data (default oggi, modificabile) | Must |
 | EX-03 | Nel bottom sheet, dopo aver selezionato il bucket, mostrare le tipologie disponibili come chip orizzontali scrollabili, filtrate per quel bucket (preset + custom utente) | Must |
 | EX-04 | L'utente può creare una nuova tipologia direttamente dal bottom sheet: campo di testo "Aggiungi tipologia…" — al salvataggio la nuova tipologia viene persistita e riappare nelle prossime spese | Must |
 | EX-05 | Campo nota/descrizione opzionale, distinto dalla tipologia | Should |

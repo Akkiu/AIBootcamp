@@ -2,7 +2,7 @@ Sync the Kopilot bootcamp app codebase with this spec repo (PRD, epics, data mod
 
 ## Source repos
 
-- **Code (Lovable app):** `/Users/viniciusandrade/Documents/Projects/kopilot-bootcamp-app-ae2f9850/`
+- **Code (Lovable app):** `/Users/cristiano.giardi/AIBootcamp/app-dreamjar`
 - **Spec (this repo):** `/Users/cristiano.giardi/DreamJar/`
 
 ## Steps
