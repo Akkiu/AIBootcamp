@@ -1,6 +1,6 @@
 # Epic: Gestione Sogni
 
-**Stato:** Draft · Maggio 2026 · **Priorità:** Must — v1
+**Stato:** Built · Maggio 2026 · **Priorità:** Must — v1
 
 > As a user, I want to add, edit, and delete my dreams so that my list always reflects what I'm actually saving for.
 
