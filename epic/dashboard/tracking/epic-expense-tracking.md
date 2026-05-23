@@ -8,12 +8,12 @@
 
 ## Come funziona
 
-L'utente aggiunge una spesa indicando importo, bucket e **tipologia** (es. "Cena", "Aperitivo", "Dentista"). La tipologia è un'etichetta riutilizzabile: l'app ne suggerisce alcune preset, ma l'utente può crearne di nuove che tornano disponibili per le spese future.
+L'utente aggiunge una spesa indicando importo, bucket, **tipologia** (es. "Cena", "Aperitivo", "Dentista") e **data in cui è stata effettuata** (di default oggi, modificabile). La tipologia è un'etichetta riutilizzabile: l'app ne suggerisce alcune preset, ma l'utente può crearne di nuove che tornano disponibili per le spese future.
 
 Il **Free to Dream** diventa un saldo dinamico: parte dall'allocazione iniziale dell'onboarding e decresce man mano che vengono registrate spese nel mese corrente.
 
 ```
-Home → tap "+" → bottom sheet → importo + bucket + tipologia (+ nota opzionale) → Salva
+Home → tap "+" → bottom sheet → importo + bucket + tipologia + data (+ nota opzionale) → Salva
                                                                                      ↓
                                               bucket aggiornato · Free to Dream aggiornato
 ```
