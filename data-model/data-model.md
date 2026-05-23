@@ -25,6 +25,8 @@ Un record per utente. Contiene il setup budget inserito nell'onboarding.
 | Campo | Tipo | Note |
 |-------|------|------|
 | `id` | uuid PK FK → users.id | |
+| `name` | text | Nome utente (da raw_user_meta_data al signup) |
+| `email` | text | Copia dell'email da auth.users |
 | `monthly_income` | numeric | Stipendio mensile netto |
 | `fixed_expenses` | numeric | Budget mensile Spese fisse |
 | `leisure` | numeric | Budget mensile Svago |
@@ -32,6 +34,8 @@ Un record per utente. Contiene il setup budget inserito nell'onboarding.
 | `utilities` | numeric | Budget mensile Utenze |
 | `other` | numeric | Budget mensile Altro |
 | `onboarding_completed` | boolean | Default false. True dopo step 5 |
+| `onboarding_data` | jsonb | Dati grezzi dell'onboarding (usati in transizione) |
+| `created_at` | timestamptz | |
 | `updated_at` | timestamptz | |
 
 **Campo calcolato (non persistito):**
@@ -82,14 +86,22 @@ Tipologie di spesa create dall'utente (es. "Cena", "Aperitivo", "Dentista"). Alc
 
 | name | bucket | emoji |
 |------|--------|-------|
+| Affitto / Mutuo | fixed | 🏠 |
+| Trasporti | fixed | 🚌 |
+| Luce | utilities | ⚡ |
+| Gas | utilities | 🔥 |
+| Internet / Telefono | utilities | 📡 |
 | Cena fuori | leisure | 🍽️ |
 | Aperitivo | leisure | 🥂 |
+| Abbigliamento | leisure | 👗 |
+| Concerti / Eventi | leisure | 🎵 |
 | Dentista | unexpected | 🦷 |
+| Farmacia | unexpected | 💊 |
+| Auto / Riparazioni | unexpected | 🚗 |
 | Spesa supermercato | other | 🛒 |
 | Carburante | other | ⛽ |
-| Farmacia | unexpected | 💊 |
-| Trasporti | fixed | 🚌 |
-| Abbigliamento | leisure | 👗 |
+| Viaggi | goal | ✈️ |
+| Acquisti speciali | goal | 🎁 |
 
 L'utente può aggiungere tipologie personalizzate senza limite. Le tipologie vengono mostrate ordinate per: preset prima, poi custom per data di creazione decrescente (le più recenti in cima).
 
@@ -120,11 +132,13 @@ Spese manuali registrate dall'utente dalla Dashboard.
 |-------|------|------|
 | `id` | uuid PK | |
 | `user_id` | uuid FK → users.id | |
+| `name` | text | Campo libero opzionale (legacy, affiancato da `note`) |
 | `amount` | numeric | Importo > 0 |
 | `bucket` | enum | `fixed` · `leisure` · `unexpected` · `utilities` · `other` · `goal` |
-| `typology_id` | uuid FK → expense_typologies.id | Tipologia selezionata. Nullable (spese senza tipologia consentite) |
-| `note` | text | Nome / descrizione libera opzionale |
+| `typology_id` | uuid FK → expense_typologies.id | Tipologia selezionata. Nullable |
+| `note` | text | Descrizione libera opzionale |
 | `expense_date` | date | Data della spesa. Default oggi. |
+| `spent_at` | timestamptz | Timestamp pieno della spesa (derivato da expense_date). Default now(). |
 | `created_at` | timestamptz | |
 
 **Campo calcolato per il bucket mensile (lato client):**
@@ -213,9 +227,24 @@ erDiagram
 
 ---
 
+## Tabelle infrastrutturali (email)
+
+Tabelle operative create dalla migrazione email infra (22 maggio). Non sono tabelle di prodotto — non espongono dati utente.
+
+| Tabella | Scopo |
+|---------|-------|
+| `email_send_log` | Audit trail di tutti i tentativi di invio email |
+| `email_send_state` | Config rate-limit e throughput (riga singola) |
+| `suppressed_emails` | Unsubscribe, bounce, complaint (append-only) |
+| `email_unsubscribe_tokens` | Token per link di disiscrizione |
+
+Accesso riservato a `service_role`. RLS abilitata su tutte.
+
+---
+
 ## Note
 
 - Row Level Security (RLS) abilitata su tutte le tabelle: ogni utente accede solo ai propri dati.
 - `profiles.onboarding_completed = false` → la Home mostra placeholder e CTA setup invece dei numeri reali.
 - I valori dei bucket in `profiles` sono importi assoluti mensili, non percentuali. La % mostrata in UI è calcolata sul client: `importo / monthly_income * 100`.
-- La tabella `recurring_expenses` copre sia le spese fisse (bucket `fixed`) che quelle variabili ricorrenti (bucket `variable`). La distinzione guida solo il colore in UI.
+- `expenses.spent_at` è un timestamptz derivato da `expense_date` (settato a mezzogiorno del giorno scelto). `expense_date` è il campo canonico per i calcoli mensili.

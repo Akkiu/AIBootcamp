@@ -1,6 +1,6 @@
 # Epic: Dashboard (Home)
 
-**Stato:** Draft · Maggio 2026 · **Priorità:** Must — v1
+**Stato:** Built · Maggio 2026 · **Priorità:** Must — v1
 
 > As a user, I want to see my financial status at a glance so that I always know how much I can spend without stress.
 
@@ -8,7 +8,7 @@
 
 ## Come funziona
 
-La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − spese variabili − buffer`), riepilogo 4 bucket, obiettivi attivi con progress bar, spese ricorrenti in arrivo nei 7 giorni.
+La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − svago − imprevisti − utenze − altro`), riepilogo 6 bucket, sezione Analytics con breakdown delle spese, obiettivi attivi con progress bar, spese ricorrenti in arrivo nei 7 giorni.
 
 ---
 
@@ -19,7 +19,7 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − spes
 | D-01 | Saluto personalizzato con nome utente e ora del giorno | Must |
 | D-02 | Hero card con "Free to Dream" in real-time | Must |
 | D-03 | Indicatore positivo/negativo sotto l'hero | Must |
-| D-04 | 4 bucket cards con importo e % sul reddito | Must |
+| D-04 | 6 bucket cards (Spese fisse, Svago, Imprevisti, Utenze, Altro, Obiettivi) con importo e % sul reddito | Must |
 | D-05 | Tap su bucket → dettaglio bucket | Should |
 | D-06 | Lista obiettivi attivi con progress bar e importo residuo | Must |
 | D-07 | Tap su obiettivo → dettaglio obiettivo | Must |
@@ -28,6 +28,7 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − spes
 | D-10 | Stato vuoto se onboarding non completato (placeholder + CTA setup) | Must |
 | D-11 | Pull-to-refresh | Should |
 | D-12 | Bottom navigation: Home, Budget, Obiettivi, Profilo | Must |
+| D-13 | Sezione Analytics: breakdown grafico delle spese per bucket del mese corrente | Should |
 
 ---
 
@@ -46,6 +47,6 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − spes
 
 ## Dipendenze
 
-- **Onboarding** — fornisce stipendio, spese fisse, variabili, buffer
+- **Onboarding** — fornisce stipendio e i budget dei 6 bucket
 - **Goals** — obiettivi mostrati in Home
 - **Budget** — valori bucket aggiornabili in v1.1

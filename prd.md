@@ -60,13 +60,14 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 ### Must (v1)
 - Onboarding 5-step con setup budget iniziale
 - Home con hero number "Free to Dream"
-- Gestione e visualizzazione Goals
+- Gestione e visualizzazione Goals → [epic/dashboard/dream-manager/epic.md](epic/dashboard/dream-manager/epic.md)
 - Autenticazione (email + Google)
 
 ### Should (v1.1)
 - Schermata Budget: breakdown modificabile 6 bucket
 - Notifiche: reminder spese + milestone goal
-- Registrazione spese manuale → [epic/dashboard/epic-expense-tracking.md](epic/dashboard/epic-expense-tracking.md)
+- Registrazione spese manuale → [epic/dashboard/tracking/epic-expense-tracking.md](epic/dashboard/tracking/epic-expense-tracking.md)
+- Impostazioni account (modifica profilo, cambio password, preferenze notifiche) → [epic/settings/epic.md](epic/settings/epic.md)
 
 ### Could (v2)
 - Digest settimanale via email/push

@@ -1,6 +1,6 @@
 # Epic: Registrazione Spese Manuali
 
-**Stato:** Draft · Maggio 2026 · **Priorità:** Should — v1.1
+**Stato:** Built · Maggio 2026 · **Priorità:** Should — v1.1
 
 > As a user, I want to log what I've spent so that I always know how much is actually left for my dreams.
 
