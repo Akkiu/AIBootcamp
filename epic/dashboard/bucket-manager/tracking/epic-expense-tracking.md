@@ -70,7 +70,7 @@ Le tipologie sono etichette personalizzabili legate a un bucket di default. Veng
 | Nessuna spesa registrata | Bucket mostra solo il budget, "speso €0" |
 | Bucket in pareggio | Layout normale, barra progresso al 100% del budget |
 | Bucket in rosso (speso > budget) | Card evidenziata in errore, Free to Dream ridotto |
-| Free to Dream < 0 | Hero in errore (già gestito in [Dashboard](../epic.md)) |
+| Free to Dream < 0 | Hero in errore (già gestito in [Dashboard](../../epic.md)) |
 | Nessuna tipologia disponibile per il bucket selezionato | Mostra solo il campo "Aggiungi tipologia…" |
 | Salvataggio in corso | Bottone "Salva" con spinner, form disabilitato |
 | Errore di salvataggio | Toast "Errore nel salvataggio. Riprova." |
@@ -79,6 +79,6 @@ Le tipologie sono etichette personalizzabili legate a un bucket di default. Veng
 
 ## Dipendenze
 
-- **[Dashboard](epic.md)** — le bucket card (D-02) vengono estese con i dati di spesa; il Free to Dream hero (D-01) si aggiorna
+- **[Dashboard](../../epic.md)** — le bucket card (D-02) vengono estese con i dati di spesa; il Free to Dream hero (D-01) si aggiorna
 - **Onboarding** — fornisce i budget iniziali per ciascun bucket (base di partenza del calcolo)
 - **Goals** — le spese verso obiettivi (bucket "Obiettivi") si riflettono sul progresso dei goal
