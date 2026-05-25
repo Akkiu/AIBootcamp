@@ -1,6 +1,6 @@
 # Epic: Modifica Spese Fisse con Ricalcolo Automatico
 
-**Stato:** Planned · Maggio 2026 · **Priorità:** Should — v1.1
+**Stato:** To Do · **Priorità:** Should — v1.1
 
 > As a user, I want to update a fixed expense when its amount changes so that all my other bucket budgets adjust automatically without touching my dream allocation.
 

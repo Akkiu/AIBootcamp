@@ -1,6 +1,6 @@
 # Epic: Impostazioni
 
-**Stato:** Built (parziale) · Maggio 2026 · **Priorità:** Should — v1.1
+**Stato:** In Progress · Maggio 2026 · **Priorità:** Should — v1.1
 
 > As a user, I want to manage my account and preferences so that I can keep my profile up to date and control the app's behaviour.
 

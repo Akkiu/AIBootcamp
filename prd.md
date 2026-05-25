@@ -64,10 +64,10 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Autenticazione (email + Google)
 
 ### Should (v1.1)
-- Schermata Budget: breakdown modificabile 6 bucket
+- Tab Budget: allocazioni bucket modificabili + gestione spese ricorrenti → [epic/budget/epic.md](epic/budget/epic.md)
 - Notifiche: reminder spese + milestone goal
 - Registrazione spese manuale → [epic/dashboard/bucket-manager/tracking/epic-expense-tracking.md](epic/dashboard/bucket-manager/tracking/epic-expense-tracking.md)
-- Modifica spese fisse con ricalcolo automatico → [epic/dashboard/bucket-manager/tracking/epic-edit-fixed-expenses.md](epic/dashboard/bucket-manager/tracking/epic-edit-fixed-expenses.md)
+- Riepilogo Spese: schermata cronologica spese registrate e future del mese → [epic/dashboard/expense-summary/epic.md](epic/dashboard/expense-summary/epic.md)
 - Header Coach: messaggio contestuale sul budget rimanente → [epic/dashboard/header coach/epic.md](epic/dashboard/header coach/epic.md)
 - Impostazioni account (modifica profilo, cambio password, preferenze notifiche) → [epic/settings/epic.md](epic/settings/epic.md)
 

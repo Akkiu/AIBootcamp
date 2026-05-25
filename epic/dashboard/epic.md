@@ -1,6 +1,6 @@
 # Epic: Dashboard (Home)
 
-**Stato:** Built · Maggio 2026 · **Priorità:** Must — v1
+**Stato:** Done · Maggio 2026 · **Priorità:** Must — v1
 
 > As a user, I want to see my financial status at a glance so that I always know how much I can spend without stress.
 
@@ -44,6 +44,13 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − svag
 | Loading | Skeleton loaders |
 
 ---
+
+## Sub-epiche
+
+- **[Dream Manager](dream-manager/epic.md)** — aggiunta, modifica ed eliminazione sogni
+- **[Bucket Manager / Tracking](bucket-manager/tracking/epic-expense-tracking.md)** — registrazione spese manuali e modifica spese fisse
+- **[Riepilogo Spese](expense-summary/epic.md)** — schermata con lista cronologica di tutte le spese del mese
+- **[Header Coach](header%20coach/epic.md)** — messaggio contestuale sul budget rimanente
 
 ## Dipendenze
 

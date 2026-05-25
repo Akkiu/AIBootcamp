@@ -1,6 +1,6 @@
 # Epic: Onboarding
 
-**Stato:** Built · Maggio 2026 · **Priorità:** Must — v1
+**Stato:** Done · Maggio 2026 · **Priorità:** Must — v1
 
 > As a new user, I want to set up my budget in a few guided steps so that I can immediately see my "Free to Dream" number without any manual configuration.
 
