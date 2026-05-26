@@ -67,7 +67,10 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Tab Budget: allocazioni bucket modificabili + gestione spese ricorrenti → [epic/budget/epic.md](epic/budget/epic.md)
 - Notifiche: reminder spese + milestone goal
 - Registrazione spese manuale → [epic/dashboard/bucket-manager/tracking/epic-expense-tracking.md](epic/dashboard/bucket-manager/tracking/epic-expense-tracking.md)
-- Riepilogo Spese: schermata cronologica spese registrate e future del mese → [epic/dashboard/expense-summary/epic.md](epic/dashboard/expense-summary/epic.md)
+- Riepilogo Spese: schermata cronologica spese registrate e future del mese → [epic/expense/summary/epic.md](epic/expense/summary/epic.md)
+- Calendario Spese: vista calendario delle spese ricorrenti mensili e annuali per pianificare le uscite future → [epic/expense/calendar/epic.md](epic/expense/calendar/epic.md)
+- Notifiche in-app: avvisi per spese ricorrenti in scadenza nei prossimi 3 giorni → [epic/notification/epic.md](epic/notification/epic.md)
+- Analytics: tab Statistiche con grafici spese per bucket e tipologia, confronto con budget allocato → [epic/analytics/epic.md](epic/analytics/epic.md)
 - Header Coach: messaggio contestuale sul budget rimanente → [epic/dashboard/header coach/epic.md](epic/dashboard/header coach/epic.md)
 - Impostazioni account (modifica profilo, cambio password, preferenze notifiche) → [epic/settings/epic.md](epic/settings/epic.md)
 
@@ -132,8 +135,12 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Autenticazione (email + Google)
 
 ### v1.1 — Consolidamento · Settimane 7–10
-- Schermata Budget: breakdown modificabile 6 bucket
+- Schermata Budget: breakdown modificabile 6 bucket + gestione spese ricorrenti
 - Registrazione spese manuali
+- Riepilogo Spese: cronologia spese registrate e in arrivo del mese
+- Calendario Spese: vista mensile delle spese ricorrenti (mensili e annuali)
+- Notifiche in-app: avvisi per spese ricorrenti in scadenza nei 3 giorni successivi
+- Analytics: tab Statistiche con grafici per bucket e tipologia
 - Notifiche: reminder spese + milestone goal
 - Digest settimanale via email
 - Celebrazioni milestone animate

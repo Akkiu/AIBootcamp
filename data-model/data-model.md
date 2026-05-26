@@ -1,7 +1,7 @@
 # DreamJar — Data Model
 
-**Versione:** 1.0 · Maggio 2026
-**Scope:** MVP v1 — Dashboard, Onboarding, Goals
+**Versione:** 1.2 · Maggio 2026
+**Scope:** MVP v1 + Budget, Expense Summary, Expense Calendar, Notifiche
 
 ---
 
@@ -117,11 +117,15 @@ Spese fisse e ricorrenti inserite dall'utente (onboarding + gestione successiva)
 | `name` | text | Es. "Affitto", "Spotify" |
 | `amount` | numeric | |
 | `day_of_month` | int | Giorno del mese di addebito (1–31) |
+| `month_of_year` | int | 1–12. Nullable. Obbligatorio se `frequency = annual` |
+| `frequency` | enum | `monthly` · `annual` — default `monthly` |
 | `bucket` | enum | `fixed` · `leisure` · `unexpected` · `utilities` · `other` |
 | `active` | boolean | Default true |
 | `created_at` | timestamptz | |
 
 **Logica "In arrivo":** le spese con `day_of_month` nei prossimi 7 giorni dal giorno corrente vengono mostrate in Home, ordinate per data crescente.
+
+**Logica Calendario:** le spese `monthly` appaiono ogni mese nel `day_of_month` configurato. Le spese `annual` appaiono una volta l'anno nel `month_of_year` e `day_of_month` configurati.
 
 ---
 
@@ -136,6 +140,7 @@ Spese manuali registrate dall'utente dalla Dashboard.
 | `amount` | numeric | Importo > 0 |
 | `bucket` | enum | `fixed` · `leisure` · `unexpected` · `utilities` · `other` · `goal` |
 | `typology_id` | uuid FK → expense_typologies.id | Tipologia selezionata. Nullable |
+| `recurring_expense_id` | uuid FK → recurring_expenses.id | Nullable. Valorizzato se la spesa è il pagamento di una ricorrente (usato per lo stato "pagata" nel Calendario) |
 | `note` | text | Descrizione libera opzionale |
 | `expense_date` | date | Data della spesa. Default oggi. |
 | `spent_at` | timestamptz | Timestamp pieno della spesa (derivato da expense_date). Default now(). |
@@ -146,6 +151,23 @@ Spese manuali registrate dall'utente dalla Dashboard.
 spent_this_month = SUM(amount) WHERE bucket = ? AND expense_date IN current month
 remaining        = profiles.<bucket_budget> - spent_this_month
 ```
+
+---
+
+### `notification_reads`
+Traccia le notifiche lette dall'utente. Le notifiche non sono persistite — vengono calcolate al volo confrontando `recurring_expenses` con la data corrente. Solo lo stato "letta" viene salvato, identificando la spesa ricorrente e la scadenza specifica.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `recurring_expense_id` | uuid FK → recurring_expenses.id | |
+| `due_date` | date | Data di scadenza specifica per cui la notifica è stata letta (es. 2026-05-28) |
+| `read_at` | timestamptz | |
+
+**Vincolo di unicità:** `(user_id, recurring_expense_id, due_date)` — una notifica per scadenza può essere letta una sola volta.
+
+**Logica badge:** il conteggio notifiche non lette è calcolato come: notifiche generate (spese in scadenza nei 3 giorni) − record presenti in `notification_reads` per le stesse `(recurring_expense_id, due_date)`.
 
 ---
 
@@ -191,6 +213,8 @@ erDiagram
         text name
         numeric amount
         int day_of_month
+        int month_of_year
+        enum frequency
         enum bucket
         boolean active
         timestamptz created_at
@@ -212,9 +236,18 @@ erDiagram
         numeric amount
         enum bucket
         uuid typology_id FK
+        uuid recurring_expense_id FK
         text note
         date expense_date
         timestamptz created_at
+    }
+
+    notification_reads {
+        uuid id PK
+        uuid user_id FK
+        uuid recurring_expense_id FK
+        date due_date
+        timestamptz read_at
     }
 
     users ||--|| profiles : "ha"
@@ -222,7 +255,10 @@ erDiagram
     users ||--o{ recurring_expenses : "ha"
     users ||--o{ expense_typologies : "ha"
     users ||--o{ expenses : "ha"
+    users ||--o{ notification_reads : "ha"
     expense_typologies ||--o{ expenses : "classifica"
+    recurring_expenses ||--o{ expenses : "pagata da"
+    recurring_expenses ||--o{ notification_reads : "letta in"
 ```
 
 ---

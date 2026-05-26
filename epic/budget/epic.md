@@ -99,7 +99,7 @@ Obiettivi e Free to Dream restano entrambi invariati.
 ## Dipendenze
 
 - **[Dashboard](../dashboard/epic.md)** — i bucket card (D-04) e il Free to Dream hero (D-02) si aggiornano dopo ogni modifica; la sezione "In arrivo" (D-08) legge le stesse spese ricorrenti
-- **[Riepilogo Spese](../dashboard/expense-summary/epic.md)** — la sezione "In arrivo questo mese" è alimentata dalle stesse spese ricorrenti gestite qui
+- **[Riepilogo Spese](../expense/summary/epic.md)** — la sezione "In arrivo questo mese" è alimentata dalle stesse spese ricorrenti gestite qui
 - **Onboarding** — i valori iniziali dei bucket e le prime spese ricorrenti vengono inseriti durante l'onboarding; il Budget tab li rende modificabili in seguito
 - **Goals** — il bucket Obiettivi è gestito esclusivamente tramite l'epic Goals
 

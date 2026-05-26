@@ -2,6 +2,32 @@
 
 ---
 
+## 2026-05-26
+
+### Product — Nuove epiche
+- **Epic: Analytics** — tab "Statistiche" con grafico a torta/anello delle spese per bucket, lista bucket espandibile per tipologia, confronto con budget allocato, navigazione mesi
+
+---
+
+## 2026-05-25
+
+### Product — Nuove epiche
+- **Epic: Budget** — tab dedicato alla configurazione finanziaria: stipendio, allocazioni bucket e spese ricorrenti (mensili)
+- **Epic: Riepilogo Spese** — schermata cronologica con spese registrate e in arrivo nel mese corrente; include eliminazione spesa con ricalcolo immediato di bucket e Free to Dream
+- **Epic: Calendario Spese** — vista calendario delle spese ricorrenti (mensili e annuali) con navigazione mesi, marker sui giorni e stato "pagata" per i giorni passati
+- **Epic: Notifiche In-App** — avvisi in-app per spese ricorrenti in scadenza nei 3 giorni successivi; icona campana con badge, centro notifiche, stato letta/non letta
+
+### Data Model — v1.2
+- `recurring_expenses`: aggiunti `frequency` (`monthly` · `annual`) e `month_of_year` per supportare le spese annuali
+- `expenses`: aggiunto `recurring_expense_id` FK nullable per collegare una spesa al pagamento di una ricorrente (stato "pagata" nel Calendario)
+- Nuova tabella `notification_reads`: traccia le notifiche lette per `(user_id, recurring_expense_id, due_date)`
+
+### Struttura epiche
+- Creata cartella `epic/expense/` con le sottocartelle `summary/` (ex `dashboard/expense-summary`) e `calendar/` (ex `dashboard/expense-calendar`)
+- Aggiornati tutti i link interni e il PRD
+
+---
+
 ## 2026-05-23
 
 ### Dashboard
