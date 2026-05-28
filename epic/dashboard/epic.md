@@ -28,7 +28,7 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − svag
 | D-10 | Stato vuoto se onboarding non completato (placeholder + CTA setup) | Must |
 | D-11 | Pull-to-refresh | Should |
 | D-12 | Bottom navigation: Home, Budget, Obiettivi, Profilo | Must |
-| D-13 | Sezione Analytics: breakdown grafico delle spese per bucket del mese corrente | Should |
+| D-13 | Mini-donut chart sotto le bucket card: distribuzione spese del mese corrente per bucket, con gli stessi colori bucket; tap sulla chart → apre il tab Analytics | Should |
 
 ---
 
@@ -57,3 +57,4 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − svag
 - **Onboarding** — fornisce stipendio e i budget dei 6 bucket
 - **Goals** — obiettivi mostrati in Home
 - **Budget** — valori bucket aggiornabili in v1.1
+- **[Analytics](../../analytics/epic.md)** — la mini-donut (D-13) è il punto di ingresso verso il tab Statistiche

@@ -1,6 +1,6 @@
 # Epic: Calendario Spese
 
-**Stato:** To Do · **Priorità:** Should — v1.1
+**Stato:** In Progress · Maggio 2026 · **Priorità:** Should — v1.1
 
 > As a user, I want a calendar view of my recurring expenses so that I can see at a glance when money will leave my account each month and plan ahead.
 

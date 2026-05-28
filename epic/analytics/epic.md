@@ -41,6 +41,7 @@ Bottom nav → "Statistiche"
 | AN-10 | Stato vuoto: nessuna spesa registrata nel mese → illustrazione + messaggio "Nessuna spesa registrata in questo mese" | Must |
 | AN-11 | Grafico a barre mensile (ultimi 6 mesi) per vedere l'andamento nel tempo — totale speso per mese | Could |
 | AN-12 | Mesi futuri non selezionabili (freccia → disabilitata sul mese corrente) | Must |
+| AN-13 | Mini-donut chart in Home (D-13), posizionata sotto le bucket card: stessi dati e colori del grafico principale; tap → naviga al tab Statistiche | Should |
 
 ---
 
@@ -62,3 +63,4 @@ Bottom nav → "Statistiche"
 - **[Registrazione Spese Manuali](../dashboard/bucket-manager/tracking/epic-expense-tracking.md)** — fonte dati delle spese registrate (`expenses` + `expense_typologies`)
 - **[Budget](../budget/epic.md)** — fonte degli importi allocati per bucket (usati come riferimento nelle barre di avanzamento)
 - **[Riepilogo Spese](../expense/summary/epic.md)** — condivide lo stesso ciclo mensile e la stessa fonte dati
+- **[Dashboard](../dashboard/epic.md)** — la mini-donut (D-13) in Home è il punto di ingresso verso questo tab; condivide gli stessi dati e colori bucket

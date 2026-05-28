@@ -1,6 +1,6 @@
 # Epic: Budget
 
-**Stato:** To Do · **Priorità:** Should — v1.1
+**Stato:** Done · Maggio 2026 · **Priorità:** Should — v1.1
 
 > As a user, I want a dedicated place to manage my budget allocations and recurring expenses so that I can keep my financial setup accurate as my life changes.
 
