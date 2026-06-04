@@ -46,3 +46,4 @@ Dashboard → Impostazioni → card Account (nome, email) · pulsante Esci
 - **Auth** — `signOut()` reindirizza alla schermata di login
 - **Onboarding** — S-08 (reset) riporta `profiles.onboarding_completed = false` e torna al flusso onboarding
 - **Notifiche** (v1.1) — S-06 / S-07 controllano le preferenze legate all'epic Notifiche
+- **[Upgrade & Open Banking](../upgrade/epic.md)** (v3) — card "DreamJar Pro" / "Piano attivo" aggiunta in cima a Settings; flusso upgrade e connessione bancaria si apre inline dalla stessa schermata

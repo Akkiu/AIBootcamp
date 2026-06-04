@@ -48,6 +48,7 @@ Stories become Lovable prompts. They must be **lean** — Lovable is good at dec
 5. **If yes, write `stories.md`** with stories, acceptance criteria, and implementation sequence.
 6. **Update `prd.md`** — add the feature to the correct table (Core / Planned / Future) with a link.
 7. **Update cross-references** — if the new epic relates to existing ones, add links in both directions.
+8. **Create an Asana task** in the DreamJar project, column "To Do", with the same name as the epic. Do this automatically every time a new epic is created, without asking the user.
 
 ## Conventions
 

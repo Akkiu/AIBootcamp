@@ -81,9 +81,12 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Tracker spesa supermercato: registrazione spese della spesa con confronto settimana/mese su mese
 
 ### Won't (v1)
-- Integrazione bancaria (Enable Banking / PSD2) — rinviata al piano Pro in v3
 - AI advisor / suggerimenti automatici
 - Multi-valuta / conti multipli
+
+### v3 (Piano Pro)
+- **Upgrade inline da Settings** — paywall in Settings con bottom sheet e checkout Stripe → [epic/upgrade/epic.md](epic/upgrade/epic.md)
+- **Open Banking** — connessione conto bancario PSD2 post-upgrade (Enable Banking) → [epic/open-banking/epic.md](epic/open-banking/epic.md)
 
 ---
 
@@ -154,8 +157,8 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - **Tracker spesa supermercato:** registrazione veloce delle spese della spesa all'interno delle spese variabili, con storico e confronto settimana su settimana / mese su mese
 
 ### v3 — Piano Pro & Integrazione bancaria · Mesi 7–12
-- **Piano Pro:** sblocca sync bancario automatico come upgrade dal piano gratuito (inserimento manuale)
-- Connessione al conto bancario via PSD2 (Enable Banking)
+- **Upgrade inline da Settings:** card "DreamJar Pro" + bottom sheet con pricing + checkout Stripe → [epic/upgrade/epic.md](epic/upgrade/epic.md)
+- **Open Banking:** connessione conto via PSD2 (Enable Banking) post-upgrade → [epic/open-banking/epic.md](epic/open-banking/epic.md)
 - Import automatico stipendio e transazioni dal conto
 - Categorizzazione automatica delle transazioni
 - Suggerimenti basati su pattern di spesa
