@@ -1,5 +1,5 @@
 # DreamJar — Product Requirements Document
-**Versione:** 1.0 · Maggio 2025
+**Versione:** 1.2 · Giugno 2026
 **Stato:** Draft
 
 ---
@@ -55,38 +55,25 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 
 ---
 
-## 05 · Prioritizzazione MoSCoW
+## 05 · Features
 
-### Must (v1)
-- Onboarding 5-step con setup budget iniziale
-- Home con hero number "Free to Dream"
-- Gestione e visualizzazione Goals → [epic/dashboard/dream-manager/epic.md](epic/dashboard/dream-manager/epic.md)
-- Autenticazione (email + Google)
-
-### Should (v1.1)
-- Tab Budget: allocazioni bucket modificabili + gestione spese ricorrenti → [epic/budget/epic.md](epic/budget/epic.md)
-- Notifiche: reminder spese + milestone goal
-- Registrazione spese manuale → [epic/dashboard/bucket-manager/tracking/epic-expense-tracking.md](epic/dashboard/bucket-manager/tracking/epic-expense-tracking.md)
-- Riepilogo Spese: schermata cronologica spese registrate e future del mese → [epic/expense/summary/epic.md](epic/expense/summary/epic.md)
-- Calendario Spese: vista calendario delle spese ricorrenti mensili e annuali per pianificare le uscite future → [epic/expense/calendar/epic.md](epic/expense/calendar/epic.md)
-- Notifiche in-app: avvisi per spese ricorrenti in scadenza nei prossimi 3 giorni → [epic/notification/epic.md](epic/notification/epic.md)
-- Analytics: tab Statistiche con grafici spese per bucket e tipologia, confronto con budget allocato → [epic/analytics/epic.md](epic/analytics/epic.md)
-- Header Coach: messaggio contestuale sul budget rimanente → [epic/dashboard/header coach/epic.md](epic/dashboard/header coach/epic.md)
-- Impostazioni account (modifica profilo, cambio password, preferenze notifiche) → [epic/settings/epic.md](epic/settings/epic.md)
-
-### Could (v2)
-- Digest settimanale via email/push
-- App mobile nativa (iOS/Android)
-- Offline mode con sync
-- Tracker spesa supermercato: registrazione spese della spesa con confronto settimana/mese su mese
-
-### Won't (v1)
-- AI advisor / suggerimenti automatici
-- Multi-valuta / conti multipli
-
-### v3 (Piano Pro)
-- **Upgrade inline da Settings** — paywall in Settings con bottom sheet e checkout Stripe → [epic/upgrade/epic.md](epic/upgrade/epic.md)
-- **Open Banking** — connessione conto bancario PSD2 post-upgrade (Enable Banking) → [epic/open-banking/epic.md](epic/open-banking/epic.md)
+| Feature | Priorità | Versione | Stato | Epic |
+|---------|----------|----------|-------|------|
+| Onboarding 5-step | Must | v1 | Done | [epic](epic/onboarding/epic.md) |
+| Dashboard — Home + Free to Dream | Must | v1 | Done | [epic](epic/dashboard/epic.md) |
+| Dream Manager — Goals | Must | v1 | Done | [epic](epic/dashboard/dream-manager/epic.md) |
+| Autenticazione (email + Google) | Must | v1 | Done | — |
+| Budget — allocazioni bucket + spese ricorrenti | Should | v1.1 | Done | [epic](epic/budget/epic.md) |
+| Riepilogo Spese — cronologia mensile | Should | v1.1 | Done | [epic](epic/expense/summary/epic.md) |
+| Impostazioni — account + preferenze | Should | v1.1 | In Progress | [epic](epic/settings/epic.md) |
+| Calendario Spese — vista mensile ricorrenti | Should | v1.1 | In Progress | [epic](epic/expense/calendar/epic.md) |
+| Analytics — grafici per bucket e tipologia | Should | v1.1 | To Do | [epic](epic/analytics/epic.md) |
+| Notifiche in-app — scadenze e milestone | Should | v1.1 | To Do | [epic](epic/notification/epic.md) |
+| Header Coach — messaggio contestuale budget | Should | v1.1 | To Do | [epic](<epic/dashboard/header coach/epic.md>) |
+| Tracker spesa supermercato | Could | v2 | Planned | — |
+| App mobile nativa (iOS/Android) | Could | v2 | Planned | — |
+| Upgrade — paywall Pro inline da Settings | Must | v3 | Done | [epic](epic/upgrade/epic.md) |
+| Open Banking — sync conto bancario PSD2 | Must | v3 | Planned | [epic](epic/open-banking/epic.md) |
 
 ---
 
