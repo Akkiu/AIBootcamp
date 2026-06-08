@@ -70,6 +70,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 | Analytics — grafici per bucket e tipologia | Should | v1.1 | To Do | [epic](epic/analytics/epic.md) |
 | Notifiche in-app — scadenze e milestone | Should | v1.1 | To Do | [epic](epic/notification/epic.md) |
 | Header Coach — messaggio contestuale budget | Should | v1.1 | To Do | [epic](<epic/dashboard/header coach/epic.md>) |
+| Coach AI — card intelligente + notifiche push | Should | v1.2 | To Do | [epic](epic/coach/epic.md) |
 | Tracker spesa supermercato | Could | v2 | Planned | — |
 | App mobile nativa (iOS/Android) | Could | v2 | Planned | — |
 | Upgrade — paywall Pro inline da Settings | Must | v3 | Done | [epic](epic/upgrade/epic.md) |
@@ -96,6 +97,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - **Backend:** Necessario da subito per auth e sync dati.
 - **Dati locali:** Supporto offline rinviato a v2. In v1, l'app richiede connessione.
 - **Inserimento dati:** Manuale in v1 e nel piano gratuito. L'integrazione bancaria (PSD2) è riservata al piano a pagamento e richiede partnership, conformità ABI e tempi non compatibili con un MVP.
+- **Coach AI (v1.2):** richiede una API key Anthropic (Claude) configurata come variabile d'ambiente in Supabase (`ANTHROPIC_API_KEY`). Non è configurabile in automatico da Lovable — va impostata manualmente prima del deploy della feature. Il costo LLM è a carico del progetto (stimare ~1 chiamata per utente attivo al giorno).
 - **Monetizzazione:** Non nel scope v1. Il modello Freemium si basa sulla distinzione inserimento dati: **piano gratuito = manuale** (stipendio e spese inseriti a mano); **piano Pro = automatico** (sync con il conto bancario via PSD2 per importare stipendio e transazioni in automatico).
 
 ---
@@ -134,6 +136,12 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Notifiche: reminder spese + milestone goal
 - Digest settimanale via email
 - Celebrazioni milestone animate
+
+### v1.2 — Coach AI · Settimane 11–13
+- Coach AI: Supabase Edge Function + integrazione LLM (Claude Anthropic)
+- Coach Card in Home con messaggio personalizzato, spese variabili future e Fine mese stimato
+- Notifiche push Coach AI (spesa grande, check-in metà mese, spesa imminente)
+- Caching messaggi AI con tabella `coach_messages`
 
 ### v2 — Mobile & Monetizzazione · Mesi 4–6
 - App mobile nativa (iOS + Android)

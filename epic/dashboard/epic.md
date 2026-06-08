@@ -51,6 +51,7 @@ La Home mostra: hero number "Free to Dream" (`stipendio − spese fisse − svag
 - **[Bucket Manager / Tracking](bucket-manager/tracking/epic-expense-tracking.md)** — registrazione spese manuali e modifica spese fisse
 - **[Riepilogo Spese](../../expense/summary/epic.md)** — schermata con lista cronologica di tutte le spese del mese
 - **[Header Coach](header%20coach/epic.md)** — messaggio contestuale sul budget rimanente
+- **[Coach](../../coach/epic.md)** — card proattiva con analisi spese, proiezione fine mese e notifiche push
 
 ## Dipendenze
 

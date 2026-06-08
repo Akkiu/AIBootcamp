@@ -40,6 +40,9 @@ Il mese di riferimento è lo stesso usato dal tracking: si resetta a inizio mese
 | ES-10 | Tap su una spesa registrata → bottom sheet di dettaglio con tutti i campi (importo, bucket, tipologia, data, nota) | Should |
 | ES-11 | Da dettaglio spesa: eliminazione con conferma → ricalcolo immediato Free to Dream e bucket | Should |
 | ES-12 | Raggruppamento opzionale per giorno nella sezione "Spese registrate" (header di sezione con data e subtotale giornaliero) | Could |
+| ES-13 | Quando si aggiunge una spesa con data in un mese futuro, la spesa viene salvata per quel mese e non per il mese corrente | Must |
+| ES-14 | Le spese con data futura non deducono dal Free to Dream né dal bucket del mese corrente; impattano il bilancio del mese di destinazione | Must |
+| ES-15 | Le spese future pianificate manualmente appaiono nella sezione "In arrivo" del mese di destinazione (visibile navigando a quel mese con il selettore mese) | Must |
 
 ---
 
@@ -52,6 +55,7 @@ Il mese di riferimento è lo stesso usato dal tracking: si resetta a inizio mese
 | Solo spese registrate (nessuna in arrivo) | Sezione "Spese registrate" visibile, sezione "In arrivo" nascosta |
 | Entrambe le sezioni con dati | Layout completo con entrambe le sezioni |
 | Mese precedente (storico) | Solo sezione "Spese registrate", read-only, eliminazione disabilitata |
+| Mese futuro | Solo sezione "In arrivo" con le spese pianificate per quel mese; sezione "Spese registrate" assente |
 | Loading | Skeleton loaders sulle righe |
 | Errore caricamento | Messaggio di errore + retry |
 

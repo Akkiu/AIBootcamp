@@ -10,12 +10,12 @@
 
 Una vista calendario accessibile dalla schermata Riepilogo Spese (toggle lista/calendario in alto). Mostra il mese corrente e permette di navigare liberamente verso i mesi futuri e passati.
 
-Ogni giorno con una o più spese ricorrenti pianificate mostra un indicatore visivo. Tappando sul giorno si vedono le spese in dettaglio. Le spese annuali compaiono solo nel mese e giorno configurati.
+Ogni giorno con una o più spese (ricorrenti o variabili) mostra un indicatore visivo. Tappando sul giorno si vedono le spese in dettaglio. Le spese annuali compaiono solo nel mese e giorno configurati.
 
 ```
 Riepilogo Spese → toggle "Calendario"
     ↓
-[Header: mese + totale ricorrenti del mese]
+[Header: mese + totale spese del mese (ricorrenti + variabili)]
 [Griglia mensile]    ← giorni con spese hanno marker
     ↓ tap giorno
 [Bottom sheet: lista spese del giorno]
@@ -29,14 +29,15 @@ Riepilogo Spese → toggle "Calendario"
 |---|-----------|----------|
 | EC-01 | Toggle lista/calendario in cima alla schermata Riepilogo Spese per passare alla vista calendario | Must |
 | EC-02 | Griglia mensile con navigazione ← → tra mesi (passati e futuri) | Must |
-| EC-03 | Header del calendario: nome mese + anno, totale spese ricorrenti del mese (es. "Totale ricorrenti: €1.240") | Must |
-| EC-04 | Giorni con spese ricorrenti mostrano un marker visivo (dot o badge con importo totale del giorno) | Must |
+| EC-03 | Header del calendario: nome mese + anno, totale spese del mese (ricorrenti + variabili, es. "Totale: €1.240") | Must |
+| EC-04 | Giorni con spese (ricorrenti o variabili) mostrano un marker visivo (dot o badge con importo totale del giorno) | Must |
 | EC-05 | Tap su un giorno con spese → bottom sheet con lista delle spese: nome, importo, bucket (emoji + colore) | Must |
 | EC-06 | Spese ricorrenti mensili (configurate in Budget) appaiono ogni mese nel giorno configurato | Must |
 | EC-07 | Spese ricorrenti annuali appaiono una volta l'anno nel mese e giorno configurati | Must |
-| EC-08 | Nel mese corrente, i giorni passati mostrano se la spesa è stata effettivamente registrata (stato "pagata") o è ancora pianificata | Should |
-| EC-09 | Stato vuoto: nessuna spesa ricorrente in questo mese → messaggio "Nessuna spesa ricorrente in questo mese" | Must |
-| EC-10 | Tap su spesa già pagata nel bottom sheet → rimanda al dettaglio della spesa registrata (bottom sheet ES-2) | Could |
+| EC-08 | Spese variabili già registrate appaiono nel giorno della data di registrazione | Must |
+| EC-09 | Nel mese corrente, i giorni passati mostrano se la spesa ricorrente è stata effettivamente registrata (stato "pagata") o è ancora pianificata | Should |
+| EC-10 | Stato vuoto: nessuna spesa in questo mese → messaggio "Nessuna spesa in questo mese" | Must |
+| EC-11 | Tap su spesa variabile nel bottom sheet → rimanda al dettaglio della spesa registrata (bottom sheet ES-2) | Could |
 
 ---
 
@@ -55,4 +56,4 @@ Riepilogo Spese → toggle "Calendario"
 ## Dipendenze
 
 - **[Budget](../../budget/epic.md)** — fonte dati delle spese ricorrenti mensili e annuali (BU-09/BU-10)
-- **[Riepilogo Spese](../summary/epic.md)** — schermata ospite del toggle lista/calendario; il dettaglio spesa (ES-02) è riusato per le spese già pagate
+- **[Riepilogo Spese](../summary/epic.md)** — schermata ospite del toggle lista/calendario; fonte dati delle spese variabili registrate; il dettaglio spesa (ES-02) è riusato per le spese già pagate

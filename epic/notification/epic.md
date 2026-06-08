@@ -77,3 +77,5 @@ Non serve una tabella persistita: le notifiche sono computate al volo e lo stato
 - **[Budget](../budget/epic.md)** — fonte dati delle spese ricorrenti attive (BU-09/BU-10); `frequency` e `month_of_year` per le annuali
 - **[Calendario Spese](../expense/calendar/epic.md)** — destinazione del tap su notifica
 - **[Riepilogo Spese](../expense/summary/epic.md)** — cross-reference per determinare se una ricorrente è già stata pagata (EC-08)
+
+> **Nota:** le notifiche push del Coach (spesa grande, check-in metà mese, spesa imminente con budget ridotto) sono documentate separatamente in **[Coach](../coach/epic.md)** — diverso canale (push device) e diversa logica (analisi spesa + proiezione FtD).

@@ -1,7 +1,7 @@
 # DreamJar — Data Model
 
-**Versione:** 1.2 · Maggio 2026
-**Scope:** MVP v1 + Budget, Expense Summary, Expense Calendar, Notifiche
+**Versione:** 1.3 · Giugno 2026
+**Scope:** MVP v1 + Budget, Expense Summary, Expense Calendar, Notifiche, Coach AI
 
 ---
 
@@ -250,16 +250,49 @@ erDiagram
         timestamptz read_at
     }
 
+    coach_messages {
+        uuid id PK
+        uuid user_id FK
+        text message
+        date month
+        timestamptz generated_at
+        jsonb context_snapshot
+    }
+
     users ||--|| profiles : "ha"
     users ||--o{ goals : "ha"
     users ||--o{ recurring_expenses : "ha"
     users ||--o{ expense_typologies : "ha"
     users ||--o{ expenses : "ha"
     users ||--o{ notification_reads : "ha"
+    users ||--o{ coach_messages : "ha"
     expense_typologies ||--o{ expenses : "classifica"
     recurring_expenses ||--o{ expenses : "pagata da"
     recurring_expenses ||--o{ notification_reads : "letta in"
 ```
+
+---
+
+### `coach_messages`
+Cache dei messaggi AI generati dal Coach. Evita chiamate ridondanti all'LLM ad ogni apertura dell'app.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `message` | text | Messaggio AI generato dalla Edge Function |
+| `month` | date | Primo giorno del mese di riferimento (es. 2026-06-01) — usato per invalidare il messaggio al cambio mese |
+| `generated_at` | timestamptz | Timestamp generazione. Il messaggio è considerato valido per 2 ore se nessuna spesa è stata registrata nel frattempo |
+| `context_snapshot` | jsonb | Snapshot del contesto passato all'LLM (bucket balances, spese, ricorrenti future). Utile per debug e per rilevare se il contesto è cambiato |
+
+**Logica di invalidazione:** la Edge Function usa il messaggio in cache se:
+- `month` = mese corrente, E
+- `generated_at` < 2 ore fa, E
+- nessuna riga in `expenses` con `created_at > generated_at` per quell'utente
+
+In tutti gli altri casi chiama l'LLM e sovrascrive il record.
+
+**Vincolo:** un solo record per `(user_id, month)` — upsert su conflitto.
 
 ---
 
