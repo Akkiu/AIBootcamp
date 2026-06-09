@@ -1,4 +1,4 @@
-# moneyCoach
+# DreamJar
 
 webapp per gestire i risparmi e ricevere notifiche sulle spese future. Questo è il repo della documentazione di prodotto.
 
@@ -18,7 +18,7 @@ Esperto Product Manager nella costruzione di app con **Lovable**. Focus sul *cos
 ## Structure
 
 ```
-moneyCoach/
+DreamJar/
 ├── prd.md              # Product Requirements Document — la macro vista
 ├── changelog.md        # Changelog delle feature ordinate per data (in cima le ultime)
 ├── brand-system/       # Visual identity e design system (vedi brand-system/CLAUDE.md)
@@ -36,7 +36,7 @@ moneyCoach/
 
 ## PRD Rules
 
-`prd.md` is the single source of truth for what moneyCoach is. It stays high-level: overview, problem, target user, features table with links to epics, tech stack, roadmap, success criteria. Every epic must be listed in the features table.
+`prd.md` is the single source of truth for what DreamJar is. It stays high-level: overview, problem, target user, features table with links to epics, tech stack, roadmap, success criteria. Every epic must be listed in the features table.
 
 ## Conventions
 
