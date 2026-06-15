@@ -1,7 +1,7 @@
 # DreamJar — Data Model
 
-**Versione:** 1.3 · Giugno 2026
-**Scope:** MVP v1 + Budget, Expense Summary, Expense Calendar, Notifiche, Coach AI
+**Versione:** 1.4 · Giugno 2026
+**Scope:** MVP v1 + Budget, Expense Summary, Expense Calendar, Notifiche, Coach AI, Open Banking
 
 ---
 
@@ -259,6 +259,47 @@ erDiagram
         jsonb context_snapshot
     }
 
+    bank_connections {
+        uuid id PK
+        uuid user_id FK
+        text provider
+        text account_uid
+        text institution_name
+        enum status
+        timestamptz valid_until
+        timestamptz last_sync_at
+        timestamptz created_at
+    }
+
+    bank_transactions {
+        uuid id PK
+        uuid user_id FK
+        uuid bank_connection_id FK
+        text external_id
+        date booking_date
+        numeric amount
+        text merchant_raw
+        text merchant_normalized
+        text category_guess
+        uuid typology_id FK
+        enum confidence
+        enum status
+        uuid expense_id FK
+        timestamptz imported_at
+        timestamptz created_at
+    }
+
+    notification_preferences {
+        uuid id PK
+        uuid user_id FK
+        boolean recurring_reminders_enabled
+        boolean goal_milestones_enabled
+        boolean coach_push_enabled
+        boolean bank_transactions_enabled
+        boolean bank_auto_import_notify
+        timestamptz updated_at
+    }
+
     users ||--|| profiles : "ha"
     users ||--o{ goals : "ha"
     users ||--o{ recurring_expenses : "ha"
@@ -266,9 +307,15 @@ erDiagram
     users ||--o{ expenses : "ha"
     users ||--o{ notification_reads : "ha"
     users ||--o{ coach_messages : "ha"
+    users ||--o{ bank_connections : "ha"
+    users ||--o{ bank_transactions : "ha"
+    users ||--|| notification_preferences : "ha"
     expense_typologies ||--o{ expenses : "classifica"
     recurring_expenses ||--o{ expenses : "pagata da"
     recurring_expenses ||--o{ notification_reads : "letta in"
+    bank_connections ||--o{ bank_transactions : "contiene"
+    bank_transactions ||--o| expenses : "diventa"
+    expense_typologies ||--o{ bank_transactions : "suggerita in"
 ```
 
 ---
@@ -285,6 +332,8 @@ Cache dei messaggi AI generati dal Coach. Evita chiamate ridondanti all'LLM ad o
 | `generated_at` | timestamptz | Timestamp generazione. Il messaggio è considerato valido per 2 ore se nessuna spesa è stata registrata nel frattempo |
 | `context_snapshot` | jsonb | Snapshot del contesto passato all'LLM (bucket balances, spese, ricorrenti future). Utile per debug e per rilevare se il contesto è cambiato |
 
+**LLM:** Gemini (Google). La Edge Function chiama l'API Gemini con il contesto finanziario del mese.
+
 **Logica di invalidazione:** la Edge Function usa il messaggio in cache se:
 - `month` = mese corrente, E
 - `generated_at` < 2 ore fa, E
@@ -293,6 +342,79 @@ Cache dei messaggi AI generati dal Coach. Evita chiamate ridondanti all'LLM ad o
 In tutti gli altri casi chiama l'LLM e sovrascrive il record.
 
 **Vincolo:** un solo record per `(user_id, month)` — upsert su conflitto.
+
+---
+
+### `bank_connections`
+Connessioni bancarie attive degli utenti Pro tramite Enable Banking (PSD2). Un utente può avere più account collegati.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `provider` | text | Default `'enable_banking'` |
+| `account_uid` | text | ID account Enable Banking |
+| `institution_name` | text | Nome banca (es. "Intesa Sanpaolo") |
+| `status` | enum | `active` · `disconnected` · `expired` |
+| `valid_until` | timestamptz | Scadenza del consenso PSD2 |
+| `last_sync_at` | timestamptz | Ultima sync completata con successo |
+| `created_at` | timestamptz | |
+| `updated_at` | timestamptz | |
+
+---
+
+### `bank_transactions`
+Transazioni bancarie ricevute da Enable Banking. Rappresentano lo stato di processing di ogni transazione: dal raw import fino all'eventuale conversione in `expenses`.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `bank_connection_id` | uuid FK → bank_connections.id | |
+| `account_uid` | text | ID account Enable Banking |
+| `external_id` | text | ID transazione dalla banca (idempotenza) |
+| `booking_date` | date | Data di addebito |
+| `amount` | numeric(12,2) | Negativo = spesa, positivo = entrata |
+| `currency` | text | Default `'EUR'` |
+| `merchant_raw` | text | Descrizione originale dalla banca |
+| `merchant_normalized` | text | Uppercase, spazi normalizzati (usata per matching) |
+| `category_guess` | text | Bucket suggerito dal sistema (`fixed`/`leisure`/...) |
+| `typology_id` | uuid FK → expense_typologies.id | Nullable. Popolato se il sistema individua una tipologia |
+| `confidence` | enum | `auto_recurring` · `auto_preset` · `low` |
+| `status` | enum | `pending_review` · `imported` · `ignored` · `duplicate` |
+| `expense_id` | uuid FK → expenses.id | Nullable. Popolato dopo import |
+| `imported_at` | timestamptz | |
+| `reviewed_at` | timestamptz | |
+| `created_at` | timestamptz | |
+| `updated_at` | timestamptz | |
+
+**Vincolo unique:** `(bank_connection_id, external_id)` — garantisce idempotenza durante la sync.
+
+**Logica `confidence`:**
+- `auto_recurring`: merchant normalizzato corrisponde a una `recurring_expenses` attiva con importo ±5%
+- `auto_preset`: merchant normalizzato è nella lista preset hardcoded (Esselunga, Conad, Netflix, Spotify…)
+- `low`: nessun match → resta in `pending_review`
+
+**Filtri applicati prima del matching:** `amount > 0` (entrate), merchant contenente GIROCONTO / BONIFICO A SE / TOP UP → transazione ignorata. Dedup: stessa banca, importo ±10%, data ±2 giorni → status `duplicate`.
+
+---
+
+### `notification_preferences`
+Preferenze utente per tutte le notifiche dell'app. Un record per utente.
+
+| Campo | Tipo | Note |
+|-------|------|------|
+| `id` | uuid PK | |
+| `user_id` | uuid FK → users.id | |
+| `recurring_reminders_enabled` | boolean | Default `true` — reminder spese ricorrenti in arrivo (in-app) |
+| `goal_milestones_enabled` | boolean | Default `true` — notifiche milestone obiettivi (in-app) |
+| `coach_push_enabled` | boolean | Default `false` — notifiche push Coach AI (solo Pro) |
+| `bank_transactions_enabled` | boolean | Default `true` — push per sync bancaria (solo Pro) |
+| `bank_auto_import_notify` | boolean | Default `false` — push anche per auto-import silenzioso (solo Pro) |
+| `created_at` | timestamptz | |
+| `updated_at` | timestamptz | |
+
+**Vincolo:** un solo record per `user_id`.
 
 ---
 

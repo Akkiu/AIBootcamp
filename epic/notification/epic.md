@@ -78,4 +78,4 @@ Non serve una tabella persistita: le notifiche sono computate al volo e lo stato
 - **[Calendario Spese](../expense/calendar/epic.md)** — destinazione del tap su notifica
 - **[Riepilogo Spese](../expense/summary/epic.md)** — cross-reference per determinare se una ricorrente è già stata pagata (EC-08)
 
-> **Nota:** le notifiche push del Coach (spesa grande, check-in metà mese, spesa imminente con budget ridotto) sono documentate separatamente in **[Coach](../coach/epic.md)** — diverso canale (push device) e diversa logica (analisi spesa + proiezione FtD).
+> **Nota — Piani:** le notifiche in-app di questa epic (NO-01…NO-11) sono disponibili nel **piano Free**. Le notifiche push avanzate del Coach (spesa grande, check-in metà mese, spesa imminente) sono riservate al **piano Pro** e documentate in **[Coach](../coach/epic.md)** — diverso canale (push device) e diversa logica (analisi spesa + proiezione FtD).

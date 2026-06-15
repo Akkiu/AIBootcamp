@@ -2,7 +2,7 @@
 
 Sequence consigliata: S1 → S2
 
-**Prerequisito:** l'epic Upgrade (checkout Stripe) deve essere completato prima di implementare queste stories.
+**Prerequisito:** l'epic Upgrade (checkout Paddle) deve essere completato prima di implementare queste stories.
 
 ---
 
@@ -76,3 +76,61 @@ Se la connessione bancaria scade o viene revocata, mostra in cima a Settings (so
 
 **Comportamenti riconnessione:**
 - Stessi di S1: connessione ok → toast + aggiornamento stato; fallimento → toast con "Riprova"
+
+---
+
+## S3 — Import transazioni bancarie e Inbox
+
+**Goal:** dopo la connessione bancaria, importare automaticamente le transazioni che hanno un match certo e presentare quelle ambigue in un Inbox per la revisione dell'utente.
+
+**Requisiti coperti:** OB-12, OB-13, OB-14, OB-15, OB-16, OB-17, OB-18, OB-19, OB-20, OB-21, OB-22, OB-23, OB-24, OB-25, OB-26, OB-27, OB-28, OB-29, OB-30, OB-31, OB-32, OB-33, OB-34
+
+**Dipendenza:** S1 (conto collegato), epic Budget S1 (recurring_expenses esistenti)
+
+---
+
+**Prompt Lovable:**
+
+DreamJar Pro importa automaticamente le transazioni bancarie tramite Enable Banking. Le transazioni vengono classificate in tre livelli di confidenza e gestite in modo diverso.
+
+**Logica di import (backend/sync):**
+
+Ogni giorno alle 07:00 (e su richiesta manuale), il sistema recupera le nuove transazioni dal conto collegato e applica:
+
+1. **Filtri:** ignora entrate (importo > 0), trasferimenti interni (GIROCONTO, BONIFICO A SE, TOP UP) e duplicati (stessa banca, importo ±10%, data ±2 giorni).
+
+2. **Matching a 3 livelli:**
+   - `auto_recurring` — il merchant corrisponde a una spesa ricorrente attiva dell'utente (importo ±5%): auto-import silenzioso. La ricorrente risulta "pagata" nel Calendario. Nessuna notifica push (salvo preferenza "Avvisami anche per import automatici" attiva).
+   - `auto_preset` — il merchant è nella lista preset noti (Esselunga, Conad, Netflix, Spotify, Trenitalia, ecc.): auto-import. Incluso nella push aggregata di fine sync.
+   - `low` — nessun match: resta in `pending_review` nell'Inbox.
+
+3. **Push aggregata a fine sync** (una sola per utente, rispettando le quiet hours):
+   - Solo pending: "Spese dalla banca da rivedere 🔍" / "{N} spese ({€tot}) aspettano un tuo ok"
+   - Solo auto-import (se preferenza attiva): "Ho aggiunto {N} spese dalla banca 👀" / "€{tot} scalati dal residuo"
+   - Misto: "{N} spese dalla banca 👀" / "{X} importate, {Y} da rivedere"
+   - Tap → naviga a /spese tab Inbox
+
+**Schermata /spese — nuovo tab "Inbox":**
+
+Aggiungi un tab "Inbox" alla schermata /spese. Il tab mostra un badge con il numero di transazioni `pending_review`.
+
+Sopra la lista: pulsante "Sincronizza ora" che avvia una sync manuale.
+
+Ogni transazione in lista mostra: nome merchant, importo, data, categoria suggerita (modificabile). Tre azioni:
+- **"Importa"** → bottom sheet per confermare o modificare bucket e tipologia → spesa registrata, FtD aggiornato, transazione rimossa dalla lista.
+- **"Ignora"** → modale di conferma → transazione scartata, nessuna spesa creata.
+- **"È un duplicato"** → transazione marcata come duplicata e rimossa dalla lista, nessuna spesa creata.
+
+Stato vuoto del tab: "Nessuna spesa in attesa" con testo "Le nuove transazioni dal tuo conto appariranno qui".
+
+**Home — banner pending:**
+
+Quando ci sono transazioni in attesa nell'Inbox, mostra sotto al numero "Free to Dream" un banner:
+"⚠️ €{tot} da rivedere dalla banca" con link "Apri Inbox" → naviga a /spese tab Inbox.
+Il banner scompare quando l'Inbox è vuota.
+
+**Settings > Notifiche — nuovi toggle:**
+
+Aggiungi due toggle nella sezione notifiche delle Impostazioni (visibili solo agli utenti Pro):
+- "Notifiche transazioni bancarie" (default attivo): se disattivato, nessuna push per sync bancaria.
+- "Avvisami anche per import automatici" (default disattivato): se attivato, ricevi push anche quando le spese vengono importate automaticamente.

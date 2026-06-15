@@ -12,6 +12,7 @@ Un tab dedicato "Statistiche" nella bottom navigation. Mostra i dati di spesa de
 
 1. **Per bucket** — quanto ho speso in ciascuna categoria (Svago, Utenze, Spese fisse, Imprevisti, Altro) rispetto al budget allocato.
 2. **Per tipologia** — suddivisione delle spese all'interno di ciascun bucket per tipologia (es. Ristoranti, Aperitivi, Bollette).
+3. **Coach AI** (solo utenti Pro) — sezione sotto i grafici con l'analisi AI del mese: pattern di spesa, tipologia più frequente/costosa, suggerimento contestuale basato sul residuo disponibile. È la destinazione della CTA "Approfondisci" nella hero card Coach in Home.
 
 Il mese di riferimento è selezionabile tramite navigazione ← →. Il confronto con il budget allocato è sempre visibile per dare contesto ai numeri.
 
@@ -21,6 +22,7 @@ Bottom nav → "Statistiche"
 [Selettore mese]
 [Grafico a torta / barre — spese per bucket]
 [Lista bucket espandibile → tipologie]
+[Sezione Coach AI]             ← solo utenti Pro
 ```
 
 ---
@@ -42,6 +44,10 @@ Bottom nav → "Statistiche"
 | AN-11 | Grafico a barre mensile (ultimi 6 mesi) per vedere l'andamento nel tempo — totale speso per mese | Could |
 | AN-12 | Mesi futuri non selezionabili (freccia → disabilitata sul mese corrente) | Must |
 | AN-13 | Mini-donut chart in Home (D-13), posizionata sotto le bucket card: stessi dati e colori del grafico principale; tap → naviga al tab Statistiche | Should |
+| AN-14 | Sezione Coach AI in fondo a /analytics (solo utenti Pro): mostra l'analisi completa del mese con suggerimenti contestuali basati sulle tipologie di spesa | Must |
+| AN-15 | La sezione Coach mostra il messaggio completo (non troncato), con riferimento alla tipologia più frequente/costosa e al residuo disponibile | Must |
+| AN-16 | Skeleton loader nella sezione Coach durante la generazione del messaggio AI | Must |
+| AN-17 | Per gli utenti Free la sezione Coach mostra un teaser con CTA "Scopri DreamJar Pro" → naviga a Settings | Should |
 
 ---
 
@@ -64,3 +70,4 @@ Bottom nav → "Statistiche"
 - **[Budget](../budget/epic.md)** — fonte degli importi allocati per bucket (usati come riferimento nelle barre di avanzamento)
 - **[Riepilogo Spese](../expense/summary/epic.md)** — condivide lo stesso ciclo mensile e la stessa fonte dati
 - **[Dashboard](../dashboard/epic.md)** — la mini-donut (D-13) in Home è il punto di ingresso verso questo tab; condivide gli stessi dati e colori bucket
+- **[Coach AI](../coach/epic.md)** — la sezione Coach (AN-14…AN-17) è ospitata in /analytics; è la destinazione della CTA "Approfondisci" nella hero card Coach in Home

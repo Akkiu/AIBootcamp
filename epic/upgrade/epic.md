@@ -8,7 +8,7 @@
 
 ## Come funziona
 
-Il piano gratuito prevede inserimento manuale di stipendio e spese. Il piano Pro sblocca la sincronizzazione automatica con il conto bancario.
+Il piano gratuito prevede inserimento manuale, 1 sogno attivo e notifiche in-app. Il piano Pro (€4,99/mese o €39,99/anno) sblocca: sogni illimitati, Coach AI, notifiche push avanzate, e sincronizzazione automatica con il conto bancario via Open Banking PSD2.
 
 Il punto di ingresso è una card prominente nella schermata Impostazioni. Toccandola si apre un bottom sheet inline (senza cambio di pagina) con benefici, pricing e la CTA di acquisto. Dopo il pagamento il piano utente viene aggiornato e parte il flusso di connessione bancaria (→ [epic Open Banking](../open-banking/epic.md)).
 
@@ -32,7 +32,7 @@ Settings
 | # | Requisito | Priorità |
 |---|-----------|----------|
 | UP-01 | Card "DreamJar Pro" visibile in Settings per gli utenti in piano gratuito, posizionata in cima prima delle card account | Must |
-| UP-02 | La card mostra: badge "PRO", headline "Smetti di inserire le spese a mano", sottotitolo "Collega il tuo conto e importa tutto automaticamente", CTA "Scopri il piano Pro" | Must |
+| UP-02 | La card mostra: badge "PRO", headline "Sblocca tutto con DreamJar Pro", sottotitolo "Sogni illimitati, Coach AI, Open Banking e notifiche push — tutto in un piano", CTA "Scopri il piano Pro" | Must |
 | UP-03 | Tap sulla card → apre bottom sheet inline (non naviga fuori dalla pagina Settings) | Must |
 | UP-04 | Per gli utenti Pro la card è sostituita da una card "Piano attivo" con: piano corrente (mensile/annuale), data prossimo rinnovo, stato connessione bancaria, link "Gestisci piano" | Must |
 
@@ -41,17 +41,17 @@ Settings
 | # | Requisito | Priorità |
 |---|-----------|----------|
 | UP-05 | Bottom sheet mostra: titolo "DreamJar Pro", lista benefici, prezzo, CTA "Attiva DreamJar Pro" | Must |
-| UP-06 | Lista benefici (icone check): ① Connessione automatica al conto bancario ② Import automatico stipendio e transazioni ③ Categorizzazione automatica delle spese ④ Nessun inserimento manuale | Must |
-| UP-07 | Selector mensile / annuale: il prezzo si aggiorna in tempo reale; il piano annuale mostra il risparmio percentuale rispetto al mensile | Should |
+| UP-06 | Lista benefici (icone check): ① Sogni illimitati (vs. 1 nel piano gratuito) ② Coach AI — analisi mensile personalizzata ③ Notifiche push avanzate ④ Connessione automatica al conto bancario (Open Banking PSD2) ⑤ Import automatico stipendio e transazioni ⑥ Supporto prioritario | Must |
+| UP-07 | Selector mensile / annuale: €4,99/mese · €39,99/anno; il piano annuale mostra il risparmio (-33%) rispetto al mensile | Should |
 | UP-08 | Link "Come funziona l'Open Banking?" → espande accordion inline con testo: "Usiamo l'Open Banking (PSD2) per leggere le tue transazioni. Non vediamo mai le tue credenziali bancarie. I tuoi dati sono protetti e puoi disconnettere il conto in qualsiasi momento." | Should |
-| UP-09 | Pulsante "Attiva DreamJar Pro" → avvia il checkout Stripe | Must |
+| UP-09 | Pulsante "Attiva DreamJar Pro" → avvia il checkout Paddle | Must |
 | UP-10 | Link "Forse più tardi" → chiude il bottom sheet senza azione | Must |
 
 ### Checkout
 
 | # | Requisito | Priorità |
 |---|-----------|----------|
-| UP-11 | Il checkout è gestito tramite Stripe Checkout (redirect o embedded) | Must |
+| UP-11 | Il checkout è gestito tramite Paddle Checkout | Must |
 | UP-12 | Pagamento fallito → ritorno al bottom sheet con toast "Pagamento non riuscito. Riprova." | Must |
 | UP-13 | Pagamento ok → aggiornamento immediato del piano utente e avvio dell'epic [Open Banking](../open-banking/epic.md) (flusso connessione conto) | Must |
 
@@ -60,7 +60,7 @@ Settings
 | # | Requisito | Priorità |
 |---|-----------|----------|
 | UP-14 | Card "Piano attivo" in Settings: piano corrente, data prossimo rinnovo, stato connessione bancaria | Must |
-| UP-15 | Link "Gestisci piano" → porta al portale clienti Stripe per disdetta o modifica abbonamento | Must |
+| UP-15 | Link "Gestisci piano" → porta al portale clienti Paddle per disdetta o modifica abbonamento | Must |
 
 ---
 
@@ -89,4 +89,4 @@ Settings
 
 - **[Settings](../settings/epic.md)** — la card Pro è aggiunta alla schermata Impostazioni
 - **[Open Banking](../open-banking/epic.md)** — il flusso connessione conto parte immediatamente dopo il pagamento ok
-- **Stripe** — gestione abbonamento (mensile/annuale), portale clienti, webhook per aggiornamento stato piano
+- **Paddle** — gestione abbonamento (mensile/annuale), portale clienti, webhook per aggiornamento stato piano

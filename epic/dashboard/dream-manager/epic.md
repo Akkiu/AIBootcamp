@@ -10,6 +10,8 @@
 
 L'utente accede ai sogni dalla Home (sezione Sogni) o dalla schermata dedicata. Da lì può aggiungere un nuovo sogno, modificare i dati di un sogno esistente, oppure eliminarlo. Il vincolo fondamentale è che almeno un sogno deve sempre esistere: l'eliminazione è bloccata se rimane un solo sogno nell'elenco.
 
+**Limite Free:** gli utenti nel piano gratuito possono avere al massimo 1 sogno attivo. Il pulsante "+" è visibile ma porta a un paywall se l'utente è Free e ha già 1 sogno (→ DM-11).
+
 ```
 Home (sezione Sogni)
   ├── tap "+" → bottom sheet Nuovo sogno
@@ -37,6 +39,7 @@ Ogni sogno ha: nome, emoji, importo target e data target (opzionale). Il progres
 | DM-08 | Eliminazione bloccata se è l'ultimo sogno rimasto: modale di errore "Devi avere almeno un sogno 🌟" | Must |
 | DM-09 | Dopo eliminazione confermata: redirect alla Home, lista sogni aggiornata | Must |
 | DM-10 | Dopo salvataggio (aggiunta o modifica): bottom sheet si chiude, card aggiornata in tempo reale | Must |
+| DM-11 | Utente Free con 1 sogno esistente tappa "+": mostra bottom sheet paywall "Sogni illimitati è una funzionalità Pro" con CTA "Scopri DreamJar Pro" → naviga a Settings | Must |
 
 ---
 

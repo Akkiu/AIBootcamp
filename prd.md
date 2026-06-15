@@ -1,5 +1,5 @@
 # DreamJar — Product Requirements Document
-**Versione:** 1.2 · Giugno 2026
+**Versione:** 1.3 · Giugno 2026
 **Stato:** Draft
 
 ---
@@ -61,7 +61,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 |---------|----------|----------|-------|------|
 | Onboarding 5-step | Must | v1 | Done | [epic](epic/onboarding/epic.md) |
 | Dashboard — Home + Free to Dream | Must | v1 | Done | [epic](epic/dashboard/epic.md) |
-| Dream Manager — Goals | Must | v1 | Done | [epic](epic/dashboard/dream-manager/epic.md) |
+| Dream Manager — Goals | Must | v1 | Done | [epic](epic/dashboard/dream-manager/epic.md) | *(1 sogno — Free; illimitati — Pro)* |
 | Autenticazione (email + Google) | Must | v1 | Done | — |
 | Budget — allocazioni bucket + spese ricorrenti | Should | v1.1 | Done | [epic](epic/budget/epic.md) |
 | Riepilogo Spese — cronologia mensile | Should | v1.1 | Done | [epic](epic/expense/summary/epic.md) |
@@ -70,15 +70,34 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 | Analytics — grafici per bucket e tipologia | Should | v1.1 | To Do | [epic](epic/analytics/epic.md) |
 | Notifiche in-app — scadenze e milestone | Should | v1.1 | To Do | [epic](epic/notification/epic.md) |
 | Header Coach — messaggio contestuale budget | Should | v1.1 | To Do | [epic](<epic/dashboard/header coach/epic.md>) |
-| Coach AI — card intelligente + notifiche push | Should | v1.2 | To Do | [epic](epic/coach/epic.md) |
+| Coach AI — card intelligente + notifiche push **(Pro)** | Should | v1.2 | To Do | [epic](epic/coach/epic.md) |
 | Tracker spesa supermercato | Could | v2 | Planned | — |
 | App mobile nativa (iOS/Android) | Could | v2 | Planned | — |
 | Upgrade — paywall Pro inline da Settings | Must | v3 | Done | [epic](epic/upgrade/epic.md) |
-| Open Banking — sync conto bancario PSD2 | Must | v3 | Planned | [epic](epic/open-banking/epic.md) |
+| Open Banking — sync conto bancario PSD2 **(Pro)** | Must | v3 | In Progress | [epic](epic/open-banking/epic.md) |
 
 ---
 
-## 06 · Metriche di successo (v1)
+## 06 · Piani e Prezzi
+
+| | Free | Pro |
+|---|------|-----|
+| **Prezzo** | €0 — gratuito per sempre | €4,99/mese · €39,99/anno (-33%) |
+| Sogni attivi | 1 | Illimitati |
+| Budget e allocazioni | ✓ | ✓ |
+| Calendario spese e analisi mensili | ✓ | ✓ |
+| Notifiche in-app (spese in arrivo) | ✓ | ✓ |
+| Coach AI — analisi mensile personalizzata | — | ✓ |
+| Notifiche push avanzate | — | ✓ |
+| Import automatico stipendio e transazioni | — | ✓ |
+| Collegamento bancario (Open Banking PSD2) | — | ✓ |
+| Supporto prioritario | — | ✓ |
+
+Pagamenti gestiti tramite **Paddle**. Cancellazione possibile in qualsiasi momento. Rimborso garantito entro 14 giorni.
+
+---
+
+## 07 · Metriche di successo (v1)
 
 | Metrica | Target |
 |---------|--------|
@@ -91,14 +110,14 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 
 ---
 
-## 07 · Vincoli e assunzioni
+## 08 · Vincoli e assunzioni
 
 - **Piattaforma v1:** Web app responsive (PWA-ready). App mobile nativa in v2.
 - **Backend:** Necessario da subito per auth e sync dati.
 - **Dati locali:** Supporto offline rinviato a v2. In v1, l'app richiede connessione.
 - **Inserimento dati:** Manuale in v1 e nel piano gratuito. L'integrazione bancaria (PSD2) è riservata al piano a pagamento e richiede partnership, conformità ABI e tempi non compatibili con un MVP.
-- **Coach AI (v1.2):** richiede una API key Anthropic (Claude) configurata come variabile d'ambiente in Supabase (`ANTHROPIC_API_KEY`). Non è configurabile in automatico da Lovable — va impostata manualmente prima del deploy della feature. Il costo LLM è a carico del progetto (stimare ~1 chiamata per utente attivo al giorno).
-- **Monetizzazione:** Non nel scope v1. Il modello Freemium si basa sulla distinzione inserimento dati: **piano gratuito = manuale** (stipendio e spese inseriti a mano); **piano Pro = automatico** (sync con il conto bancario via PSD2 per importare stipendio e transazioni in automatico).
+- **Coach AI (v1.2):** feature Pro. Usa **Gemini (Google)** come LLM. Richiede una API key Gemini configurata come variabile d'ambiente in Supabase. Va impostata manualmente prima del deploy. Il costo LLM è a carico del progetto (stimare ~1 chiamata per utente attivo al giorno).
+- **Monetizzazione:** Modello Freemium — **piano Free**: 1 sogno attivo, inserimento dati manuale, notifiche in-app; **piano Pro** (€4,99/mese o €39,99/anno): sogni illimitati, Coach AI, notifiche push avanzate, Open Banking PSD2. Pagamenti via Paddle.
 
 ---
 
@@ -117,7 +136,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 
 ---
 
-## 09 · Roadmap di rilascio
+## 10 · Roadmap di rilascio
 
 ### v1 — MVP · Settimane 1–6
 - Onboarding 5-step completo
@@ -143,11 +162,10 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 - Notifiche push Coach AI (spesa grande, check-in metà mese, spesa imminente)
 - Caching messaggi AI con tabella `coach_messages`
 
-### v2 — Mobile & Monetizzazione · Mesi 4–6
+### v2 — Mobile · Mesi 4–6
 - App mobile nativa (iOS + Android)
 - Offline mode con sync
 - Push notification native
-- Piano Pro: Goals illimitati + feature avanzate
 - Referral program
 - **Tracker spesa supermercato:** registrazione veloce delle spese della spesa all'interno delle spese variabili, con storico e confronto settimana su settimana / mese su mese
 
@@ -160,7 +178,7 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 
 ---
 
-## 10 · Rischi principali
+## 11 · Rischi principali
 
 **🔴 Alto — Registrazione AISP**
 L'iter regolatorio per operare come aggregatore bancario in Italia richiede 6–12 mesi e risorse legali. Va avviato in parallelo alla v2, non dopo.

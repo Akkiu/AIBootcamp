@@ -25,9 +25,10 @@ Dashboard → Impostazioni → card Account (nome, email) · pulsante Esci
 | S-03 | Modifica nome profilo inline | Should | Planned |
 | S-04 | Cambio password (email + link reset) | Should | Planned |
 | S-05 | Eliminazione account con conferma esplicita e cancellazione dati | Should | Planned |
-| S-06 | Preferenze notifiche: attiva/disattiva reminder spese in arrivo | Could | Planned |
-| S-07 | Preferenze notifiche: attiva/disattiva milestone obiettivi | Could | Planned |
+| S-06 | Preferenze notifiche: attiva/disattiva reminder spese in arrivo (in-app) | Could | Planned |
+| S-07 | Preferenze notifiche: attiva/disattiva milestone obiettivi (in-app) | Could | Planned |
 | S-08 | Reset onboarding: ricomincia il setup budget da capo | Could | Planned |
+| S-09 | Preferenze notifiche push Coach (attiva/disattiva) — visibile e modificabile solo dagli utenti Pro | Could | Planned |
 
 ---
 
