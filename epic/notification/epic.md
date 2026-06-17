@@ -1,6 +1,6 @@
 # Epic: Notifiche In-App Spese Ricorrenti
 
-**Stato:** To Do · **Priorità:** Should — v1.1
+**Stato:** Done · **Priorità:** Should — v1.1
 
 > As a user, I want to receive in-app notifications when a recurring expense is approaching so that I'm not caught off guard when money leaves my account.
 

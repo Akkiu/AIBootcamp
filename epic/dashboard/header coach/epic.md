@@ -1,6 +1,6 @@
 # Epic: Header Coach
 
-**Stato:** To Do · **Priorità:** Should — v1.1
+**Stato:** Done · **Priorità:** Should — v1.1
 
 > As a user, I want the message at the top of the dashboard to reflect how my spending is going this month so that I always have a quick, honest read on my financial situation.
 

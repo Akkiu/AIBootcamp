@@ -67,9 +67,9 @@ Lista obiettivi attivi e completati, aggiunta nuovo obiettivo (nome, importo tar
 | Riepilogo Spese — cronologia mensile | Should | v1.1 | Done | [epic](epic/expense/summary/epic.md) |
 | Impostazioni — account + preferenze | Should | v1.1 | In Progress | [epic](epic/settings/epic.md) |
 | Calendario Spese — vista mensile ricorrenti | Should | v1.1 | In Progress | [epic](epic/expense/calendar/epic.md) |
-| Analytics — grafici per bucket e tipologia | Should | v1.1 | To Do | [epic](epic/analytics/epic.md) |
-| Notifiche in-app — scadenze e milestone | Should | v1.1 | To Do | [epic](epic/notification/epic.md) |
-| Header Coach — messaggio contestuale budget | Should | v1.1 | To Do | [epic](<epic/dashboard/header coach/epic.md>) |
+| Analytics — grafici per bucket e tipologia | Should | v1.1 | Done | [epic](epic/analytics/epic.md) |
+| Notifiche in-app — scadenze e milestone | Should | v1.1 | Done | [epic](epic/notification/epic.md) |
+| Header Coach — messaggio contestuale budget | Should | v1.1 | Done | [epic](<epic/dashboard/header coach/epic.md>) |
 | Coach AI — card intelligente + notifiche push **(Pro)** | Should | v1.2 | To Do | [epic](epic/coach/epic.md) |
 | Tracker spesa supermercato | Could | v2 | Planned | — |
 | App mobile nativa (iOS/Android) | Could | v2 | Planned | — |
